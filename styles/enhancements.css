@@ -1,0 +1,167 @@
+/* Фиксове за текстово разместване и нови компоненти */
+
+/* Предотврати разместване при еластични елементи */
+.grid-2, .grid-3, .grid-4 {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+/* Картите да имат консистентна височина */
+.card {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 200px;
+  break-inside: avoid;
+  page-break-inside: avoid;
+}
+
+.card h3, .stat h4 {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  min-height: 2em;
+}
+
+/* Предотврати разместване на текста */
+body {
+  word-wrap: break-word;
+  word-break: break-word;
+  overflow-wrap: break-word;
+}
+
+p, li, h1, h2, h3, h4, h5, h6 {
+  widows: 2;
+  orphans: 2;
+}
+
+/* Нови стилове за гаджети */
+.gadget-section {
+  margin: 2rem 0;
+  padding: 2rem;
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-secondary-light) 100%);
+  border-radius: 12px;
+  border-left: 4px solid var(--color-primary);
+}
+
+.gadget-calculator {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  padding: 1.5rem;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.gadget-input {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.gadget-input label {
+  font-weight: 600;
+  color: var(--color-text-dark);
+}
+
+.gadget-input input {
+  padding: 0.75rem;
+  border: 2px solid var(--color-border);
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.2s;
+}
+
+.gadget-input input:focus {
+  border-color: var(--color-primary);
+  outline: none;
+}
+
+.gadget-result {
+  padding: 1rem;
+  background: var(--color-success-light);
+  border-left: 4px solid var(--color-success);
+  border-radius: 6px;
+  margin-top: 1rem;
+  font-weight: 600;
+  color: var(--color-success-dark);
+}
+
+/* Интерактивни елементи */
+.interactive-timeline {
+  position: relative;
+  padding: 2rem 0;
+}
+
+.timeline-item {
+  display: flex;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: '';
+  width: 4px;
+  background: var(--color-primary);
+  margin-right: 1.5rem;
+  border-radius: 2px;
+}
+
+.timeline-content {
+  flex: 1;
+}
+
+/* Изображения в стати */
+.content-image {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  margin: 1rem 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+/* Фиксиране на таблици */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+}
+
+table th, table td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+  white-space: normal;
+  word-wrap: break-word;
+}
+
+table th {
+  background: var(--color-primary-light);
+  color: var(--color-primary-dark);
+  font-weight: 600;
+}
+
+table tr:hover {
+  background: var(--color-neutral-light);
+}
+
+/* Съвместимост на мобилни */
+@media (max-width: 640px) {
+  .grid-2, .grid-3, .grid-4 {
+    grid-template-columns: 1fr;
+  }
+  
+  .gadget-section {
+    padding: 1rem;
+  }
+  
+  table {
+    font-size: 0.9rem;
+  }
+  
+  table th, table td {
+    padding: 0.5rem;
+  }
+}
