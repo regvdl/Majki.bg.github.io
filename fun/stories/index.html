@@ -1,0 +1,1790 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Българска библиотека с народни приказки, приспивни песни, стихчета и римувки за деца от всички възрасти.">
+  <meta name="keywords" content="майчинство, бременност, бебе, родителство, грижи за бебето, новородено, кърмене, здраве на детето, етапи на развитие, съвети за родители">
+  <meta name="author" content="Motherhood.bg">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://motherhood.bg/fun/stories/">
+  <meta property="og:title" content="Приказки и Песнички за Деца">
+  <meta property="og:description" content="Българска библиотека с народни приказки, приспивни песни, стихчета и римувки за деца от всички възрасти.">
+  <meta property="og:image" content="https://motherhood.bg/assets/og-image.jpg">
+  <meta property="og:locale" content="bg_BG">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://motherhood.bg/fun/stories/">
+  <meta name="twitter:title" content="Приказки и Песнички за Деца">
+  <meta name="twitter:description" content="Българска библиотека с народни приказки, приспивни песни, стихчета и римувки за деца от всички възрасти.">
+  <meta name="twitter:image" content="https://motherhood.bg/assets/og-image.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://motherhood.bg/fun/stories/">
+  
+  <title>Приказки и Песнички за Деца</title>
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Motherhood.bg",
+    "url": "https://motherhood.bg",
+    "description": "Надежден източник на информация за майчинство и родителство в България",
+    "inLanguage": "bg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Motherhood.bg",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://motherhood.bg/assets/logo.png"
+      }
+    }
+  }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --text-color: #333;
+      --bg-color: #f9fafb;
+      --white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.08);
+      --shadow-hover: 0 5px 20px rgba(0,0,0,0.12);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: var(--bg-color);
+    }
+
+    /* Header Styles */
+    .site-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 70px;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s;
+    }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-image {
+      height: 50px;
+      width: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 6px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -5px);
+    }
+
+    /* Navigation */
+    .main-nav {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 15px;
+      display: block;
+      border-radius: 5px;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+
+    .arrow {
+      font-size: 0.7em;
+      margin-left: 5px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s;
+      list-style: none;
+      padding: 10px 0;
+      margin-top: 5px;
+    }
+
+    .has-dropdown:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown li {
+      margin: 0;
+    }
+
+    .dropdown a {
+      color: var(--text-color);
+      padding: 12px 20px;
+      display: block;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .dropdown a:hover {
+      background: var(--bg-color);
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Content */
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: white;
+      min-height: calc(100vh - 300px);
+      border-radius: 10px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--text-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: var(--primary-color);
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+
+    h4 {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-color);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    ul, ol {
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    /* Alerts */
+    .alert {
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 5px solid;
+    }
+
+    .alert-info {
+      background: #ebf8ff;
+      border-color: #3182ce;
+      color: #2c5282;
+    }
+
+    .alert-warning {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .alert-danger {
+      background: #fef2f2;
+      border-color: #dc2626;
+      color: #7f1d1d;
+    }
+
+    .alert h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--border-color);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .card-grid .card {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Details/Summary */
+    details {
+      background: var(--bg-color);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary-color);
+      padding: 5px;
+      outline: none;
+    }
+
+    summary:hover {
+      color: var(--secondary-color);
+    }
+
+    details[open] summary {
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    thead, tbody {
+      display: table;
+      width: 100%;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid var(--border-color);
+    }
+
+    th {
+      background: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: var(--bg-color);
+    }
+
+    /* Footer */
+    footer {
+      background: #2d3748;
+      color: white;
+      padding: 40px 20px 30px;
+      margin-top: 60px;
+    }
+
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: #90cdf4;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      margin: 0;
+    }
+
+    /* Search Functionality */
+    .header-search {
+      position: relative;
+      flex: 0 0 auto;
+      width: 300px;
+      margin-left: 20px;
+    }
+
+    #site-search {
+      width: 100%;
+      padding: 10px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+
+    #site-search:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-height: 400px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+      margin-top: 5px;
+    }
+
+    .search-results.active {
+      display: block;
+    }
+
+    .search-result-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .search-result-item:hover {
+      background: #f8f9fa;
+    }
+
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    .search-result-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 3px;
+    }
+
+    .search-result-desc {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .search-no-results {
+      padding: 20px;
+      text-align: center;
+      color: #999;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .nav-list {
+        gap: 2px;
+      }
+
+      .nav-link {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+
+      .dropdown {
+        min-width: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .header-search {
+        width: 100%;
+        margin: 10px 0;
+        order: 3;
+      }
+      
+      .header-content {
+        flex-wrap: wrap;
+      }
+      
+      .logo {
+        order: 1;
+      }
+      
+      .mobile-menu-toggle {
+        order: 2;
+      }
+      
+      .main-nav {
+        order: 4;
+        width: 100%;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+
+      .main-nav.active {
+        max-height: 600px;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 0;
+      }
+
+      .nav-item {
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-link {
+        color: var(--text-color);
+        padding: 15px 20px;
+      }
+
+      .has-dropdown .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        padding: 0;
+        margin: 0;
+      }
+
+      .has-dropdown.active .dropdown {
+        max-height: 500px;
+        padding: 10px 0;
+      }
+
+      .dropdown a {
+        padding-left: 40px;
+        font-size: 0.9rem;
+      }
+
+      .hero-image {
+        height: 250px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 25px 15px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+    
+    /* Tablet - 2 колони */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }
+
+      .logo-icon {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      const dropdowns = document.querySelectorAll('.has-dropdown');
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          toggle.classList.toggle('active');
+          nav.classList.toggle('active');
+        });
+      }
+
+      // Mobile dropdown toggle
+      if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+          const link = dropdown.querySelector('.nav-link');
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          });
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  
+  <header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/">
+          <img src="/Mayki.bg.jpg" alt="Майчинство BG" class="logo-image">
+        </a>
+      </div>
+      
+      <button class="mobile-menu-toggle" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <!-- Възрасти на детето -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Възрасти <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/pregnancy/">🤰 Бременност</a></li>
+              <li><a href="/newborn/">👶 Новородено (0-12м)</a></li>
+              <li><a href="/toddler/">🧸 Малки деца (1-3г)</a></li>
+              <li><a href="/preschool/">🎨 Предучилищна (3-5г)</a></li>
+              <li><a href="/school-age/">📚 Училищна (6-12г)</a></li>
+              <li><a href="/adolescence/">🎓 Юношество (13-18г)</a></li>
+            </ul>
+          </li>
+
+          <!-- Здраве и грижи -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Здраве <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/health/">🏥 Общо здраве</a></li>
+              <li><a href="/health/emergency-guide/">🚨 Спешен справочник</a></li>
+              <li><a href="/health/developmental-milestones/">📊 Етапи на развитие</a></li>
+              <li><a href="/nutrition/">🥗 Хранене</a></li>
+              <li><a href="/mental-health/">💭 Психично здраве</a></li>
+              <li><a href="/self-care/">💆 Самогрижа</a></li>
+            </ul>
+          </li>
+
+          <!-- Образование и развитие -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Образование <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/education/">🏫 Образователна система</a></li>
+              <li><a href="/legal/">⚖️ Правни въпроси</a></li>
+              <li><a href="/relationships/">👨‍👩‍👧 Семейни отношения</a></li>
+            </ul>
+          </li>
+
+          <!-- Инструменти и ресурси -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Инструменти <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/resources/">📋 Всички ресурси</a></li>
+              <li><a href="/resources/checklists/">✅ Чеклисти</a></li>
+              <li><a href="/resources/product-recommendations/">🛍️ Препоръки за продукти</a></li>
+              <li><a href="/gadgets/due-date/">📅 Калкулатор за раждане</a></li>
+              <li><a href="/gadgets/bmi/">⚖️ BMI калкулатор</a></li>
+              <li><a href="/gadgets/growth-tracker/">📏 Проследяване на растежа</a></li>
+              <li><a href="/gadgets/vaccination-schedule/">💉 График ваксинации</a></li>
+              <li><a href="/pregnancy/contraction-timer/">⏱️ Таймер на контракции</a></li>
+              <li><a href="/wellness/">🧘 Холистично здраве</a></li>
+            </ul>
+          </li>
+
+          <!-- Забавление -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Забавление <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/fun/activities/">🎨 Занимания по възрасти</a></li>
+              <li><a href="/fun/stories/">📚 Приказки и песнички</a></li>
+              <li><a href="/fun/creativity/">🎭 Креативни дейности</a></li>
+              <li><a href="/fun/holidays/">🎉 Празници и традиции</a></li>
+              <li><a href="/fun/games/">🎲 Интерактивни игри</a></li>
+              <li><a href="/fun/outdoor/">🌳 Активности на открито</a></li>
+            </ul>
+          </li>
+
+          <!-- За нас -->
+          <li class="nav-item">
+            <a href="/faq/" class="nav-link">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/" class="nav-link">За нас</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="header-search">
+        <input type="text" id="site-search" placeholder="🔍 Търси в сайта..." autocomplete="off">
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <div class="content">
+  <img class="hero-image" src="/assets/images/unsplash-1481627834876-b7833e8f5570.jpg" alt="Книга с приказки" />
+  <h1>📚 Библиотека с приказки и песнички</h1>
+  <div class="alert alert-info">
+    <p><strong>Четенето на приказки</strong> развива въображението, речта и емоционалната интелигентност на детето. Препоръчва се поне 20 минути четене на ден.</p>
+  </div>
+  <div style="background: #f8f9fa; padding: 20px; border-radius: 10px; margin: 20px 0;">
+    <h3 style="margin-top: 0;">🔍 Навигация в библиотеката:</h3>
+    <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 10px;">
+      <a href="#narodni-prikazki" style="padding: 10px; background: white; border: 2px solid #667eea; border-radius: 5px; text-decoration: none; color: #333; font-weight: bold;">📖 Народни приказки</a>
+      <a href="#prikazki-bratq-grim" style="padding: 10px; background: white; border: 2px solid #667eea; border-radius: 5px; text-decoration: none; color: #333; font-weight: bold;">🏰 Братя Грим</a>
+      <a href="#hans-andersen" style="padding: 10px; background: white; border: 2px solid #667eea; border-radius: 5px; text-decoration: none; color: #333; font-weight: bold;">🧜 Ханс Андерсен</a>
+      <a href="#priispivni" style="padding: 10px; background: white; border: 2px solid #667eea; border-radius: 5px; text-decoration: none; color: #333; font-weight: bold;">🌙 Приспивни песни</a>
+      <a href="#detski-pesni" style="padding: 10px; background: white; border: 2px solid #667eea; border-radius: 5px; text-decoration: none; color: #333; font-weight: bold;">🎵 Детски песни</a>
+      <a href="#stihove" style="padding: 10px; background: white; border: 2px solid #667eea; border-radius: 5px; text-decoration: none; color: #333; font-weight: bold;">📝 Стихотворения</a>
+    </div>
+  </div>
+  <h2 id="narodni-prikazki">📖 Български народни приказки</h2>
+  <div class="card">
+    <h3>За най-малките (0-3 години)</h3>
+<p><h4>🐓 Кокошката и златното яйце</h4>
+<p>Имало едно време дядо и баба. Имали една кокошка. Снесла кокошката златно яйце. Дядото го удрял - не се чупило. Бабата го удряла - пак не се чупило. Минала мишка, с опашка помахала - яйцето паднало и се счупило. Дядото плаче, бабата плаче, а кокошката ги утешава: &quot;Не плачете, аз ще ви снеса друго яйце - не златно, ами просто!&quot;</p></p>
+<p><h4>🐺 Вълкът и седемте козлета</h4>
+<div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+<p>Живяла коза със седем козлета. Когато излизала на паша, викала на козлетата: &quot;Деца мои, не отваряйте на никого! Ще дойде вълкът и ще ви изяде!&quot; Един ден вълкът чул и решил да се престори на майка коза.</p></p>
+<p><p>Дошъл до врата и казал с дебел глас: &quot;Отворете, деца мои, аз съм майка ви!&quot;</p></p>
+<p><p>&quot;Не си ти майка ни,&quot; отговорили козлетата, &quot;майка ни има тънък, мил глас, а твоят е дебел и страшен!&quot;</p></p>
+<p><p>Вълкът отишъл, изял тебешир и се върнал с по-тънък глас: &quot;Отворете, деца мои!&quot;</p></p>
+<p><p>&quot;Покажи лапите си през прозореца,&quot; казали козлетата. Вълкът показал черните си лапи.</p></p>
+<p><p>&quot;Не си ти майка ни! Майка ни има бели копита, а твоите са черни!&quot;</p></p>
+<p><p>Вълкът отишъл при хлебаря, поръчал да му намаже лапите с тесто и се върнал. Този път показал бели лапи. Козлетата отворили, вълкът нахълтал и изял шест козлета. Само най-малкото се скрило в стенния часовник.</p></p>
+<p><p>Когато козата се върнала, малкото козле й разказало всичко. Козата излязла навън и намерила вълка да спи под дърво с подут корем. Взела ножици, разрязала му корема и извадила козлетата - живи и здрави! После напълнила корема му с камъни и го зашила.</p></p>
+<p><p>Вълкът се събудил, отишъл до реката да пие вода, но камъните го дръпнали на дъното и се удавил.</p></p>
+<p><p>А козата и козлетата живели дълго и щастливо.</p>
+</div></p>
+<p><h4>🎩 Хитър Петър и хитрината</h4>
+<div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+<p>Един ден минавал Хитър Петър покрай двореца на хана. Ханът го видял и викнал:</p></p>
+<p><p>&quot;Хитър Петре, чувам че си много умен. Ще те изпитам! Ако утре сутринта ми донесеш най-хубавата песен на света, ще ти дам торба със злато. Ако не - в тъмницата ще отидеш!&quot;</p></p>
+<p><p>Върнал се Хитър Петър у дома си и се замислил. Как ще намери най-хубавата песен? Цяла нощ не спал, мислил-мислил.</p></p>
+<p><p>Сутринта жена му го видяла замислен.</p></p>
+<p><p>&quot;Какво ти е, Петре?&quot;</p></p>
+<p><p>&quot;Ханът ми заповяда да му донеса най-хубавата песен на света.&quot;</p></p>
+<p><p>&quot;Е, това е лесно,&quot; казала жена му. &quot;Гладен ли си?&quot;</p></p>
+<p><p>&quot;Много съм гладен! Цяла нощ не спах.&quot;</p></p>
+<p><p>Занесла му жена му топла питка, бяло сирене и студена вода. Хитър Петър започнал да яде и казал:</p></p>
+<p><p>&quot;Ех, каква хубава песен пее тази питка в устата ми!&quot;</p></p>
+<p><p>Тогава скочил, взел питката, сиренето и водата и отишъл при хана.</p></p>
+<p><p>&quot;Ханю,&quot; казал Хитър Петър, &quot;донесох ти най-хубавата песен на света.&quot;</p></p>
+<p><p>&quot;Де е тя? Аз не я чувам!&quot; изненадал се ханът.</p></p>
+<p><p>&quot;Затова че не си гладен. Гладната уста - тя е най-добрата певица! Кажи ми, гладен ли си сега?&quot;</p></p>
+<p><p>&quot;Гладен съм,&quot; отвърнал ханът.</p></p>
+<p><p>&quot;Тогава седни и слушай!&quot; дал му Хитър Петър питката, сиренето и водата.</p></p>
+<p><p>Ханът започнал да яде и наистина - хубаво му станало! Смеел се, ядял и казал:</p></p>
+<p><p>&quot;Прав си, Хитър Петре! Това е най-хубавата песен! Вземи си златото!&quot;</p></p>
+<p><p>И така хитрият Петър надхитрил хана с ума си и се прибрал у дома богат.</p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>За предучилищна възраст (3-6 години)</h3>
+<p><h4>🌹 Хитър Петър и царят</h4>
+<div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+<p>Хитър Петър бил много умен и находчив човек. Веднъж царят искал да го хване в капан и го попитал:</p></p>
+<p><p>&quot;Хитър Петре, колко зайци има в моята гора?&quot;</p></p>
+<p><p>&quot;Точно толкова, колкото космите на главата ти, царю!&quot; отговорил Петър.</p></p>
+<p><p>&quot;Откъде знаеш?&quot; попитал царят.</p></p>
+<p><p>&quot;Ако не ми вярваш, царю, нека преброим заедно!&quot;</p></p>
+<p><p>Царят се разсмял и попитал:</p></p>
+<p><p>&quot;А защо не ме наричаш 'Ваше Величество'?&quot;</p></p>
+<p><p>&quot;Защото величеството ти е твое, а не мое!&quot; отвърнал хитро Петър.</p></p>
+<p><p>Един ден царят поканил Хитър Петър на гости, но му казал:</p></p>
+<p><p>&quot;Ще те приема само ако дойдеш нито гол, нито облечен, нито пеш, нито на кон, нито по пътя, нито извън пътя!&quot;</p></p>
+<p><p>Хитър Петър помислил и на другия ден се появил облечен в рибарска мрежа, яхнал на козел, като единият му крак бил в канавката край пътя, а другият - на пътя.</p></p>
+<p><p>Царят се изненадал и попитал:</p></p>
+<p><p>&quot;Хитър Петре, кое е по-важно - слънцето или луната?&quot;</p></p>
+<p><p>&quot;Луната, царю!&quot; отговорил Петър.</p></p>
+<p><p>&quot;Защо?&quot;</p></p>
+<p><p>&quot;Защото луната свети нощем, когато е тъмно и имаме нужда от светлина. А слънцето свети денем, когато и без него е светло!&quot;</p></p>
+<p><p>Царят се разсмял и му подарил торба злато за неговата хитрост и мъдрост.</p>
+</div></p>
+<p><h4>🦊 Лисицата и щъркелът</h4>
+<div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+<p>Една лисица поканила щъркела на гости.</p></p>
+<p><p>&quot;Ела, кумче, ела, миличко! Ще те почерпя!&quot;</p></p>
+<p><p>Дошъл щъркелът на гости. Лисицата сварила манджа и я сложила в плитка чиния. Напълнила чинията и приканвала:</p></p>
+<p><p>&quot;Яж, кумче, яж, миличко! Сама съм го сготвила.&quot;</p></p>
+<p><p>Щъркелът тук-там с дългия си клюн - тук-там, тук-там - не можал да яде нищо! А лисицата лижела-лижела манджата, докато я облизала цялата.</p></p>
+<p><p>Манджата свършила. Лисицата питала:</p></p>
+<p><p>&quot;Не ти ли хареса манджата, кумче?&quot;</p></p>
+<p><p>&quot;Извини, кумичке, но нещо не ми е гладно днес.&quot;</p></p>
+<p><p>&quot;Жалко, кумче! Приятно ми било твоето дружество. Дано пак да ме посетиш!&quot;</p></p>
+<p><p>На другата седмица щъркелът поканил лисицата на гости.</p></p>
+<p><p>&quot;Ела, кумичке, не се срамувай! Няма да те оставя гладна.&quot;</p></p>
+<p><p>Дошла лисицата, а щъркелът сготвил вкусно печиво и го сложил в стомна с тясно гърло. Главата на лисицата не можела да влезе в стомната.</p></p>
+<p><p>Щъркелът тикал дългия си клюн в стомната - ям, ям, ям - и облизвал всичко.</p></p>
+<p><p>&quot;Хайде, кумичке, не се срамувай! Сама съм го приготвила специално за теб!&quot;</p></p>
+<p><p>Лисицата опипвала стомната - тук-там, тук-там - само кръжала около нея. Върти опашка, лиже устни - не можала да хапне нищо!</p></p>
+<p><p>Свършило се печивото. Щъркелът питал:</p></p>
+<p><p>&quot;Не ти ли хареса, кумичке? Защо не ядеш?&quot;</p></p>
+<p><p>&quot;Извини, кумче, нещо не съм добре днес...&quot;</p></p>
+<p><p>Върнала се лисицата у дома си - гладна и разсърдена.</p></p>
+<p><p>От този ден те се разприятелили.</p></p>
+<p><p><strong>Поука:</strong> Каквото на другиго не желаеш, това нему не правиш!</p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>За ученици (6+ години)</h3>
+<p><h4>⚔️ Крали Марко и арапина</h4>
+<p>Епична българска легенда за Крали Марко - най-силният и справедлив български юнак, който се бори срещу несправедливостта и защитава слабите...</p></p>
+<p><h4>🏰 Шарената кърпа</h4>
+<p>Имало едно момче - сирак. Майка му, преди да умре, му оставила една шарена кърпа и казала: &quot;Когато си в беда, разпери кърпата и проговори желанието си...&quot; Приказката учи на доброта и справедливост.</p></p>
+  </div>
+  <h2 id="prikazki-bratq-grim">🏰 Приказки на Братя Грим</h2>
+  <div class="card">
+    <h3>🌹 Шипоковата Роза (Спящата красавица)</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p>Живели някога цар и царица, които много желаели да имат дете. След дълго чакане най-после се родила прекрасна принцеса.</p>
+<p><p>Царят нарел голямо празненство и поканил всички в царството. Имало дванайсет мъдри жени в царството, но царят имал само дванайсет златни чинии. Затова поканил само дванайсет от тях.</p></p>
+<p><p>На празненството всяка мъдра жена дарила на принцесата чудесен дар - красота, ум, доброта, музикален талант... Когато единайсетата дала своя дар, изведнъж се появила тринайсетата - тази, която не била поканена.</p></p>
+<p><p>&quot;Защото не ме поканихте,&quot; извикала тя гневно, &quot;ето какво пророкувам: На петнайсетия си рожден ден принцесата ще се убоде в хурка и ще умре!&quot;</p></p>
+<p><p>И без да каже повече, излязла от залата. Всички били ужасени, но дванайсетата мъдра жена, която още не била дала своя дар, излязла напред:</p></p>
+<p><p>&quot;Не мога да отменя проклятието, но мога да го омекотя. Принцесата няма да умре, а ще заспи за сто години. И само целувката на принц ще може да я събуди.&quot;</p></p>
+<p><p>Царят заповядал да изгорят всички хурки в царството. Минали години. Принцесата растяла и ставала все по-красива и добра.</p></p>
+<p><p>На петнайсетия си рожден ден тя обикаляла замъка и стигнала до една стара кула, в която никога не била. Качила се по стълбите и намерила малка стаичка, в която седяла една старица и предяла.</p></p>
+<p><p>&quot;Какво правиш, бабо?&quot; попитала принцесата.</p></p>
+<p><p>&quot;Предя, дете мое.&quot;</p></p>
+<p><p>&quot;Какво е това? Може ли и аз да опитам?&quot; И щом докоснала хурката, тя я убола в пръста.</p></p>
+<p><p>В този миг принцесата заспала дълбок сън. И не само тя - заспали царят, царицата, цялият двор, конете в конюшните, кучетата в двора, гълъбите на покрива, дори мухите на стената.</p></p>
+<p><p>Около замъка започнало да расте шипково храсталак - все по-високо и по-гъсто, докато покрило целия замък.</p></p>
+<p><p>Минали сто години. Един ден млад принц яхнал в тази местност и чул легендата за спящата красавица. Решил да я намери.</p></p>
+<p><p>Когато стигнал до шипковия храсталак, той сам се отворил пред него - точно изтекли сто години! Принцът влязъл в замъка, видял всички заспали и накрая намерил принцесата.</p></p>
+<p><p>Толкова красива била, че не могъл да откъсне поглед от нея. Наведе се и я целунал. В този миг тя отворила очи.</p></p>
+<p><p>&quot;Ти ли си, мой принц? Дълго те чаках.&quot;</p></p>
+<p><p>В същия момент се събудили царят, царицата, целият двор. Отпразнували сватба и живели дълго и щастливо.</p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>👧👧 Снежанка и седемте джуджета</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p>Веднъж зимна вечер една царица седяла до прозореца и шила. Изглежда през прозореца и вижда снега как вали. Убола се в пръста и три капки кръв паднали на снега.</p>
+<p><p>&quot;Да имах дете бяло като сняг, румено като кръв и черно като дърво на прозореца!&quot; помислила тя.</p></p>
+<p><p>Скоро желанието й се сбъднало - родила дъщеря, бяла като сняг, с румени бузи и черна коса. Нарекли я Снежанка. Но царицата умряла при раждането.</p></p>
+<p><p>След година царят се оженил за друга жена. Новата царица била много красива, но горда и зла. Имала вълшебно огледало и всяка сутрин питала:</p></p>
+<p><p>&quot;Огледалце, огледалце на стената,<br>коя е най-хубавата в света?&quot;</p></p>
+<p><p>И огледалото отговаряло: &quot;Вие, царице, сте най-хубавата!&quot;</p></p>
+<p><p>Но Снежанка растяла и ставала все по-красива. Един ден, когато попитала огледалото, то отговорило:</p></p>
+<p><p>&quot;Вие сте красива, царице,<br>но Снежанка е хиляди пъти по-красива!&quot;</p></p>
+<p><p>Царицата позеленяла от яд. Извикала един ловец и заповядала:</p></p>
+<p><p>&quot;Заведи Снежанка в гората и я убий! И донеси ми сърцето й като доказателство!&quot;</p></p>
+<p><p>Ловецът завел Снежанка дълбоко в гората, но когато извадил ножа, сърцето му се разтопило.</p></p>
+<p><p>&quot;Бягай, дете, и не се връщай никога!&quot; Убил едно диво прасе и донесъл сърцето му на царицата.</p></p>
+<p><p>Снежанка тичала из гората, докато намерила една малка къщица. Влязла вътре - всичко било миниатюрно. Имало седем малки столчета, седем чинийки, седем легълца. Тя била толкова гладна и уморена, че хапнала от всяка чинийка и легнала да спи.</p></p>
+<p><p>Вечерта се върнали седем джуджета. Те работели в планината, копаели злато. Като видели Снежанка, много се зарадвали.</p></p>
+<p><p>&quot;Остани при нас,&quot; казали те, &quot;ще готвиш и чистиш, а ние ще те пазим.&quot;</p></p>
+<p><p>Междувременно царицата попитала огледалото и то отговорило:</p></p>
+<p><p>&quot;Вие сте красива тук, царице,<br>но Снежанка в планината при седемте джуджета<br>е хиляди пъти по-красива!&quot;</p></p>
+<p><p>Царицата разбрала, че Снежанка е жива. Преоблякла се като селянка и отишла при къщичката. Предложила на Снежанка красиви панделки и я вързала толкова стегнато, че тя не могла да диша и паднала безжизнена.</p></p>
+<p><p>Вечерта джуджетата я намерили, развързали панделките и тя се съживила.</p></p>
+<p><p>Царицата опитала пак - този път с отровна гребен. Снежанка паднала отново, но джуджетата извадили гребена.</p></p>
+<p><p>Накрая царицата направила отровна ябълка - половината червена и отровна, половината зелена и безвредна. Преоблякла се като селянка и отишла при Снежанка.</p></p>
+<p><p>&quot;Виж каква красива ябълка! Ще ти я дам на подарък!&quot;</p></p>
+<p><p>&quot;Не искам, джуджетата ми казаха да не взимам нищо.&quot;</p></p>
+<p><p>&quot;Страхлива си! Виж, аз ще хапна първа!&quot; И хапнала от зелената половина. След това подала ябълката на Снежанка, която хапнала от червената част и паднала мъртва.</p></p>
+<p><p>Този път джуджетата не могли да я съживят. Но тя била толкова красива, че те не могли да я погребат. Направили стъклен ковчег и я сложили на планинския връх.</p></p>
+<p><p>Един ден минал принц и видял Снежанка в ковчега. Толкова красива била, че той се влюбил.</p></p>
+<p><p>&quot;Дайте ми я,&quot; помолил джуджетата, &quot;ще я пазя като скъпоценност.&quot;</p></p>
+<p><p>Когато слугите му вдигали ковчега, спънали се и ковчегът се разклатил. Парчето отровна ябълка изскочило от устата на Снежанка и тя отворила очи!</p></p>
+<p><p>&quot;Къде съм?&quot; попитала тя.</p></p>
+<p><p>&quot;При мен,&quot; отговорил принцът, &quot;и ако искаш, ще станеш моя невеста.&quot;</p></p>
+<p><p>Снежанка се съгласила. Отпразнували голяма сватба. Поканили и злата царица. Когато тя влязла и видяла Снежанка, гневът й бил толкова голям, че паднала мъртва на място.</p></p>
+<p><p>А Снежанка и принцът живели дълго и щастливо.</p>
+</div></p>
+  </div>
+  <h2 id="hans-andersen">🧜 Приказки на Ханс Кристиан Андерсен</h2>
+  <div class="card">
+    <h3>🦢 Грозното пате</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p>Беше лятно време. Пшеницата пожълтяла, овесът зазеленил, сеното беше в купи по ливадите, а щъркелът ходеше с дългите си червени крака и говореше по египетски, защото на тоз език го била научила майка му.</p>
+<p><p>Около нивите и ливадите имаше големи гори, а в горите - дълбоки езера. Наистина хубаво беше на село!</p></p>
+<p><p>На едно слънчево място стоеше една стара къща, обкръжена с канали. От стената до водата растяха големи репеи, толкоз големи, че малките деца можеха да стоят изправени под най-високите от тях.</p></p>
+<p><p>Там, под един от репеите, една патица мътеше яйцата си. Тя вече беше се уморила, защото чакането продължи твърде дълго време, и почти никой не идваше да я навести.</p></p>
+<p><p>Най-после яйцата напукаха се едно след друго - &quot;пиц, пиц!&quot; Всички яйчни жълтъци бяха оживели и пъткайки главици.</p></p>
+<p><p>&quot;Кват, кват!&quot; - каза патицата. Патенцата се бутаха и оглеждаха наоколо под зелените листа. Майка им остави това, защото зеленото е полезно за очите.</p></p>
+<p><p>&quot;Колко е голям светът!&quot; - казаха малките, защото наистина тук имаха много повече място, отколкото в яйцето.</p></p>
+<p><p>&quot;А вие мислите, че тук свършва светът?&quot; - попита майката. &quot;Не, той се простира далеч оттук, чак зад градината, до полето на свещеника, но аз никога не съм ходила дотам!&quot;</p></p>
+<p><p>След това стана и видя, че най-голямото яйце все още не се беше пукнало.</p></p>
+<p><p>&quot;Колко още да чакам?&quot; - каза тя и седна пак.</p></p>
+<p><p>&quot;Е, как вървят работите?&quot; - попита една стара патица, която идваше да я навести.</p></p>
+<p><p>&quot;С едно яйце не мога да свърша!&quot; - каза патицата. &quot;То никак не иска да се пукне. Но виж ти другите! Това са най-хубавите патенца, които съм виждала някога! Всички приличат на баща си - негодникът, който дори не е идвал да ме навести!&quot;</p></p>
+<p><p>&quot;Покажи ми яйцето, което не иска да се пукне!&quot; - каза старата патица. &quot;Да видя дали не е това пуешко яйце. И мен веднъж ме измамиха така. И какви мъки имах с тия пуйчета! Те се боят от водата. Аз не можах да ги накарам да влязат в нея!&quot;</p></p>
+<p><p>&quot;Ще поседя още малко!&quot; - каза патицата. &quot;Толкова дълго мътих, че няма да ми тежи да помътя още малко.&quot;</p></p>
+<p><p>&quot;Както щеш!&quot; - каза старата патица и си отиде.</p></p>
+<p><p>Най-после и голямото яйце се пукна. &quot;Пиц, пиц!&quot; - каза патенцето и се изтърколи. То беше голямо и грозно. Патицата го погледна.</p></p>
+<p><p>&quot;Много голямо патенце е това!&quot; - каза тя. &quot;Нито едно от другите не прилича на него. Да не е пуйче? Добре, ще разбера! Трябва във водата да влезе, макар да го блъскам аз самата!&quot;</p></p>
+<p><p>На другия ден времето беше прекрасно. Патицата с цялото си семейство слезе към канала. Плясък! Тя скочи във водата.</p></p>
+<p><p>&quot;Кват, кват!&quot; - каза тя, и едно след друго патенцата се гмурнаха. Водата се лееше над главичките им, но те веднага се показваха и плуваха прекрасно. Краченцата им работеха сами. Всички бяха във водата, дори грозното сиво патенце плуваше с тях.</p></p>
+<p><p>&quot;Не, това не е пуйче!&quot; - каза тя. &quot;Погледни как хубаво работи с краченца и как се държи изправено! Това е мое собствено дете! И всъщност то не е толкова грозно, като го погледнеш добре!&quot;</p></p>
+<p><p>Но в двора другите патици казваха: &quot;Виж ти това! Сега ще имаме още едно семейство, все едно че няма достатъчно! И това патенце - какво грозно е! Не можем да го търпим!&quot; И една патица подлетя и го кълвна в шията.</p></p>
+<p><p>&quot;Остави го!&quot; - каза майката. &quot;То на никого не пречи!&quot;</p></p>
+<p><p>&quot;Да, но е прекалено голямо и странно!&quot; - каза тази патица, която го беше кълвнала. &quot;Затова трябва да му се даде урок!&quot;</p></p>
+<p><p>Дните минаваха и ставаше все по-зле. Бедното грозно патенце всички го гонеха. Дори братята и сестрите му бяха лоши с него и казваха: &quot;Да те вземе котката, грозно такова!&quot;</p></p>
+<p><p>А майка му въздишаше: &quot;Да беше си далече оттук!&quot; Патиците го кълвяха, кокошките го биеха, а момичето, което даваше храна на птиците, го риташе с крака.</p></p>
+<p><p>Тогава то побягна. Прелетя през плета - малките птички в храстите се изплашиха и полетяха. &quot;Това е, защото съм толкоз грозно!&quot; - помисли патенцето и затвори очи, но продължи да бяга.</p></p>
+<p><p>Така стигна до голямото блато, където живееха дивите патици.</p></p>
+<p><p>Тук то остана цяла нощ. Сутринта дивите патици излетяха и видяха новия другар.</p></p>
+<p><p>&quot;Ти какъв си?&quot; - попитаха те. Грозното патенце се обръщаше на всички страни и се кланяше, колкото можеше.</p></p>
+<p><p>&quot;Ти си много грозно!&quot; - казаха дивите патици. &quot;Но това не ни пука, стига да не се жениш в нашето семейство.&quot;</p></p>
+<p><p>Бедното! То и не мислеше за женитба. Искаше само да лежи в тръстиките и да пие малко блатна вода.</p></p>
+<p><p>Така то лежа цели два дни. Тогава дойдоха два диви гъска, или по-добре казано гъсока, защото бяха мъжки. Те не бяха родени много отдавна и затова бяха много дръзки.</p></p>
+<p><p>&quot;Слушай, другарю!&quot; - казаха те. &quot;Ти си толкоз грозен, че ни харесваш! Ще дойдеш ли с нас и ще станеш прелетна птица? Тук наблизо, в друго блато, има няколко мили диви гъски, всички моми. Ти би могъл да направиш щастието си там, макар и да си толкоз грозен!&quot;</p></p>
+<p><p>&quot;Пиф! Паф!&quot; - изведнъж се чу и двата диви гъсока паднаха мъртви в тръстиката. Водата стана червена от кръв.</p></p>
+<p><p>&quot;Пиф! Паф!&quot; - чу се пак и цяли ята диви гъски се дигнаха от тръстиката. После пак се чу стрелба. Имаше голям лов. Ловците бяха около блатото, някои дори седяха на клоните на дърветата. Синият дим се носеше като облаци между тъмните дървета и се разстилаше далеч над водата.</p></p>
+<p><p>Ловните кучета дойдоха - пляс, пляс! - през блатото. Тръстиката се огъваше на всички страни. Това беше страх и ужас за грозното патенце! То извъртя глава, за да я скрие под крилото си, но в същия миг пред него се яви едно страшно голямо куче. Езикът му висеше от устата, очите му светеха страшно. То приближи муцуната си до патенцето, показа остри зъби и - пляс, пляс! - отиде си, без да го докосне.</p></p>
+<p><p>&quot;О, слава богу!&quot; - въздъхна патенцето. &quot;Аз съм толкоз грозно, че дори кучето не иска да ме ухапе!&quot;</p></p>
+<p><p>И то лежа съвсем тихо, докато сачмите свистяха в тръстиката и гърмяха един след друг изстрели.</p></p>
+<p><p>Едва късно следобед всичко утихна, но бедното патенце още не смееше да стане. То почака няколко часа, преди да се осмели да погледне наоколо, и тогава побърза да напусне блатото, колкото може по-скоро. То тичаше по полета и ливади. Духаше такава буря, че му беше трудно да се движи.</p></p>
+<p><p>Срещу вечерта то стигна до една бедна селска колибка. Тя беше толкоз ветха, че не знаеше на коя страна да падне, и затова още стоеше. Бурята свиреше около патенцето толкоз силно, че то трябваше да седне на опашката си, за да устои. После забеляза, че вратата беше паднала от единия панти и висеше толкоз криво, че то можеше да се промъкне през пролуката в стаята.</p></p>
+<p><p>Тук живееше една старица с котка и кокошка. Котката, която старицата наричаше &quot;синче&quot;, умееше да дига гръб и да мърка. Можеше дори да пуска искри, но за това трябваше да я галиш по козината в обратна посока. Кокошката имаше къси крачка и затова се наричаше &quot;Крачка-късачка&quot;. Тя снасяше добри яйца и старицата я обичаше като собствено дете.</p></p>
+<p><p>На сутринта чуждото патенце веднага забелязаха. Котката започна да мърка, а кокошката - да кудкудяка.</p></p>
+<p><p>&quot;Какво е това?&quot; - каза старицата и се огледа. Но тя не виждаше добре и затова помисли, че грозното патенце е тлъста патица, която се е заблудила.</p></p>
+<p><p>&quot;Хубав улов!&quot; - каза тя. &quot;Сега ще имам и патешки яйца, стига да не е паток! Това трябва да изпитаме!&quot;</p></p>
+<p><p>И патенцето беше прието на изпит за три седмици. Но яйца не идваха.</p></p>
+<p><p>Котката беше господар в къщата, а кокошката - госпожа, и те винаги казваха: &quot;Ние и светът!&quot; Защото смятаха, че са половината свят, и то най-добрата половина. Грозното патенце си мислеше, че може да има и друго мнение, но кокошката не го търпеше.</p></p>
+<p><p>&quot;Можеш ли да снасяш яйца?&quot; - попита тя.</p></p>
+<p><p>&quot;Не.&quot;</p></p>
+<p><p>&quot;Тогава мълчи!&quot;</p></p>
+<p><p>А котката каза: &quot;Можеш ли да дигаш гръб, да мъркаш и да пускаш искри?&quot;</p></p>
+<p><p>&quot;Не.&quot;</p></p>
+<p><p>&quot;Тогава нямаш право на мнение, когато разумните хора говорят!&quot;</p></p>
+<p><p>Грозното патенце седеше в ъгъла и беше с много лошо настроение. Тогава му дойде на ум чистият въздух и слънцето. То получи такава странна охота да плува във водата, че най-после не можа да не каже това на кокошката.</p></p>
+<p><p>&quot;Какво ти става?&quot; - попита тя. &quot;Нямаш работа, затова ти идват глупости в главата! Снеси яйца или мърчи - тогава това ще ти мине!&quot;</p></p>
+<p><p>&quot;Но е толкоз хубаво да плуваш във водата!&quot; - каза грозното патенце. &quot;Толкоз хубаво е да я насадиш над главата си и да се гмурнеш на дъното!&quot;</p></p>
+<p><p>&quot;Да, голямо удоволствие!&quot; - каза кокошката. &quot;Побъркан ли си? Попитай котката - тя е най-умната, която познавам, - харесва ли й да плува във водата или да се гмурка? Не говоря за себе си! Попитай и нашата стопанка, старицата, - по-умна от нея няма на света! Мислиш ли, че тя има охота да плува и да гмурка във водата?&quot;</p></p>
+<p><p>&quot;Вие не ме разбирате!&quot; - каза патенцето.</p></p>
+<p><p>&quot;Ние не те разбираме ли? Кой тогава ще те разбере? Сигурно не смяташ, че си по-умно от котката и от старицата? За себе си и да не говоря! Не прави си глупости, дете, а благодари на твоя създател за всичко добро, което са направили за тебе! Дойде ли в топла стая, попадна ли в общество, от което можеш да се научиш на нещо? Но ти си празнодумник и не е приятно да живееш с тебе! Вярвай ми! Аз искам твоето добро и затова ти говоря неприятни неща - по това се познават истинските приятели! Гледай сега да снасяш яйца или да се научиш да мъркаш и да пускаш искри!&quot;</p></p>
+<p><p>&quot;Мисля, че е по-добре да изляза на широкия свят!&quot; - каза грозното патенце.</p></p>
+<p><p>&quot;Добре, иди си!&quot; - каза кокошката.</p></p>
+<p><p>И патенцето си отиде. То плува и се гмуркаше, но всички животни го презираха заради грозотата му.</p></p>
+<p><p>Настъпи есента. Листата в гората пожълтяха и побурнаха. Вятърът ги хващаше и завъртваше във въздуха. Студено ставаше. Облаците висяха ниско, пълни с град и сняг. Гарванът седеше на плета и крякаше &quot;ау, ау!&quot; от студ. Да, само като си помислиш за това, вече настръхваш. Бедното патенце наистина беше зле!</p></p>
+<p><p>Една вечер - слънцето залязваше толкоз хубаво - от храстите излезе цяло ято прекрасни големи птици. Патенцето никога не беше виждало толкоз красиви. Те бяха съвсем бели, с дълги гъвкави шии. Това бяха лебеди. Те издадоха странен звук, разпериха великолепните си дълги крила и полетяха от студените страни към топлите страни, към незамръзналите езера!</p></p>
+<p><p>Те се издигнаха толкоз високо, високо! Грозното патенце почувства странно вълнение. То завъртя се във водата като колело, издигна шията си към тях и издаде толкоз силен и странен писък, че само се изплаши. О, не можеше да забрави тези красиви щастливи птици! И щом те изчезнаха от очите му, то се гмурна на дъното, после излезе и беше като извън себе си. То не знаеше как се наричат тези птици и къде летят, но обикна ги така, както никога не беше обичало нещо. То им завиждаше - но как можеше да му хрумне да пожелае такава красота за себе си! То би било щастливо, ако поне патиците биха го търпели - бедното грозно животно!</p></p>
+<p><p>И зимата стана толкоз, толкоз студена! Патенцето трябваше да плува непрекъснато, за да не замръзне водата. Но всяка нощ дупката, в която то плуваше, ставаше все по-малка и по-малка. Студът стискаше толкоз, че ледената кора се пукаше. Патенцето трябваше да движи краченца без спиране, за да не се затвори дупката. Най-после то се умори, престана да се движи и закова в леда.</p></p>
+<p><p>Рано сутринта мина селянин, видя го, отиде, счупи леда с дървеняк и го отнесе у дома си при жена си. Тук то се съживи.</p></p>
+<p><p>Децата искаха да си играят с него, но грозното патенце помисли, че ще му сторят нещо лошо, и от уплаха хвърчи направо в съда с мляко, така че млякото се разпръсна из стаята. Жената заудря с ръце, а то влетя в саксията с маслото, а после в бурето с брашното - и пак навън! О, какъв вид имаше! Жената се разкрещя и заудря го с клещите за огъня. Децата тичаха едно през друго и искаха да хванат патенцето, смееха се и крещяха! Добре че вратата беше отворена. То се изнесе през нея между храстите, в току-що налия сняг, и лежа там като замаяно.</p></p>
+<p><p>Би било прекалено тъжно да се разказва всички беди и мъки, които патенцето претърпя през студената зима...</p></p>
+<p><p>То лежеше в блатото между тръстиките, когато слънцето започна пак да грее топло. Чучулиги пееха - настъпваше прекрасна пролет.</p></p>
+<p><p>Тогава то вдигна криле - те зашумяха по-силно, отколкото преди, и понесоха го бързо напред. Преди да се усети, то се намери в една голяма градина, където ябълковите дървета цъфтяха, черешовите люляха дълги зелени клони във водата на завоя на канала.</p></p>
+<p><p>О, колко хубаво беше тук, колко миришеше на пролет! И изведнъж от гъсталака излезли три прекрасни бели лебеди. Те опериха перата си и плуваха толкоз леко. Грозното патенце позна тези великолепни птици и почувства странна тъга.</p></p>
+<p><p>&quot;Ще отлетя при тях, при тези царствени птици! Те ще ме убият, че се осмелявам, аз - толкоз грозно - да се приближа до тях! Но това не прави нищо! По-добре да ме убият те, отколкото да ме кълват патиците, да ме бият кокошките, да ме ритат момичето, което гледа птичника, да понасям мъките на зимата!&quot;</p></p>
+<p><p>И то полетя към водата и заплува към прекрасните лебеди. Те го видяха и зашумяха с крила, за да идат срещу него.</p></p>
+<p><p>&quot;Убийте ме само!&quot; - каза бедното животно и наведе главата си към водната повърхност в очакване на смъртта.</p></p>
+<p><p>Но какво видя то във водата? Видя под себе си не едно грозно тъмносиво животно, грозно и противно, а - лебед!</p></p>
+<p><p>Не прави нищо, че си се родил на двора на патиците, стига да си излюпил от лебедово яйце!</p></p>
+<p><p>Сега то беше щастливо, че преди беше претърпяло толкоз много беди и мъки: затова пък сега то по-добре можеше да оцени своето щастие и всичката красота, която го посрещаше... Големите лебеди плуваха около него и го гладеха с клюновете си.</p></p>
+<p><p>В градината дойдоха деца. Те хвърлиха във водата хляб и зърно. Най-малкото извика:</p></p>
+<p><p>&quot;Нов лебед долетял!&quot; И другите деца се зарадваха: &quot;Да, долетял е нов лебед!&quot; - И запляскаха с ръце, заиграха, затичаха да викат баща си и майка си. Хвърляха във водата хляб и сладкиши и всички казваха: &quot;Новият е най-красивият! Толкоз млад и хубав!&quot; И старите лебеди се наклониха пред него.</p></p>
+<p><p>Тогава той се засрами и скри главата си под крилото - сам не знаеше защо. Той беше прекалено щастлив, но никак не горделив, защото добро сърце никога не става горделиво. Той си спомни времето, когато го преследваха и му се присмиваха, а сега всички казваха, че е най-красивата от всички прекрасни птици! Черешите навеждаха клоните си съвсем до водата пред него, а слънцето греше толкоз топло и приятно!</p></p>
+<p><p>Тогава зашумяха перата му, гъвкавата шия се издигна и той се зарадва от сърце:</p></p>
+<p><p>&quot;Толкоз щастие не можех дори да мечтая, когато бях грозно патенце!&quot;</p>
+</div></p>
+  </div>
+  <h2 id="priispivni">🌙 Приспивни песни</h2>
+  <div class="card">
+    <h3>🌟 Мила мая мале, мале</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Мила мая мале, мале,<br>
+      Що не ляга, малко чедо?<br>
+      Слънце зайде, нощ завлече,<br>
+      Въ градина пиле пейе.<br>
+      Мила мая мале, мале!</em></p>
+<p><p><em>Спи, детенце, спи, спи, спи,<br>
+Сладък сън те да вземе,<br>
+Ангел Божи да те пази,<br>
+Утро хубаво да станеш.<br>
+Спи, детенце, спи, спи, спи!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>⭐ Ела, ела, звездо ясна</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Ела, ела, звездо ясна,<br>
+      Ела при малко детенце,<br>
+      Да го гледаш, да го пазиш,<br>
+      Сън да дава на детето.<br>
+      Ела, ела, звездо ясна!</em></p>
+<p><p><em>Звездо ясна, звездо светла,<br>
+Блясни над люлката тиха,<br>
+Де лежи мое детенце,<br>
+Сладко спи то и усмихнато.<br>
+Звездо ясна, звездо светла!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🌙 Люлка - люлка, люлееее</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Люлка, люлка, люлеее,<br>
+      Либи, либи, либеее,<br>
+      Мама детето си либа,<br>
+      Мама детето си гали,<br>
+      Сладки песни му припява.</em></p>
+<p><p><em>Спи, мое златно детенце,<br>
+Ангели те да ограждат,<br>
+Сън спокоен да те вземе,<br>
+На бял ден весело да станеш.<br>
+Спи, мое златно детенце!</em></p></p>
+<p><p><em>Месец светло изгрявай,<br>
+Де малчуган люлка люлка,<br>
+Гледай детето, пази го,<br>
+Утре здраво нека стане.<br>
+Месец светло изгрявай!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>💤 Спи, дете, спи</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Спи, дете, спи,<br>
+      Майка ти песен пей.<br>
+      Овчица бела<br>
+      Покрива цела<br>
+      Спи, дете, спи!</em></p>
+<p><p><em>Спи, дете, спи,<br>
+В градината тиха<br>
+Овце пасат,<br>
+Агънца играят,<br>
+Спи, дете, спи!</em></p></p>
+<p><p><em>Спи, дете, спи,<br>
+Звезди на небето<br>
+Светят над тебе,<br>
+Пазят те в нощта,<br>
+Спи, дете, спи!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🎵 Приспивна за мъничко бебе</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Спи, спи, мъничко,<br>
+      Спи, спи, маленко,<br>
+      Мама ти е до тебе,<br>
+      Тате ти е до тебе,<br>
+      Спи, спи, мъничко!</em></p>
+<p><p><em>Лале, лале, лалено,<br>
+Мое детенце милено,<br>
+Сладко заспи, спокойно,<br>
+Ангели те пазят, Боже мой,<br>
+Лале, лале, лалено!</em></p></p>
+<p><p><em>Дойде вечер, зайде слънце,<br>
+Няма вече гъмжило,<br>
+Всичко спи в гората тиха,<br>
+И детенце ще заспи,<br>
+Дойде вечер, зайде слънце!</em></p>
+</div></p>
+  </div>
+  <h2 id="detski-pesni">🎵 Детски песни</h2>
+  <div class="card">
+    <h3>🌈 Бяла роза, червена роза</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Бяла роза, червена роза,<br>
+      чичовата градина.<br>
+      Вчера беше зелена, зелена,<br>
+      днес е вече позлатена.</em></p>
+<p><p><em>Бяла роза, червена роза,<br>
+Ох, много мириса,<br>
+аз пък си я залях,<br>
+сърдит е на мене чичо.</em></p></p>
+<p><p><em>Бяла роза, червена роза,<br>
+чичовата градина.<br>
+Днес е вече позлатена,<br>
+утре ще е зазелена.</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🐰 Хайде, хайде, малко зайче</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Хайде, хайде, малко зайче,<br>
+      на гората да идеме,<br>
+      че момата не дава зелето,<br>
+      зелето, зелето, зелето.</em></p>
+<p><p><em>Момата зеле копае,<br>
+зайчето зеле не дава,<br>
+че го мама караше<br>
+с татко да го делят.</em></p></p>
+<p><p><em>Тате взе едната част,<br>
+мама взе другата,<br>
+а зайчето от средата<br>
+си взе най-хубавото!</em></p></p>
+<p><p><em>Хайде, хайде, малко зайче,<br>
+на гората да идеме,<br>
+че момата не дава зелето,<br>
+зелето, зелето, зелето!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🦟 Бръмбар мейстор бръмбара</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Бръмбар мейстор бръмбара,<br>
+      прилетя до звънаря.<br>
+      Той потропа на вратата -<br>
+      отвори му звънарят.</em></p>
+<p><p><em>&quot;Бръм, бръм, бръм,<br>
+дай ми, дай ми едно струм.<br>
+Че искам, че искам<br>
+да направя барабан.&quot;</em></p></p>
+<p><p><em>Звънарят му струм дава,<br>
+а бръмбар заработва.<br>
+Барабан направи<br>
+и тъпан да го бие.</em></p></p>
+<p><p><em>&quot;Там, там, там,<br>
+чуй как бие барабан!<br>
+Бръм, бръм, бръм,<br>
+много весел е сега!&quot;</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🐾 Ходил е Дядо Влас</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Ходил е Дядо Влас<br>
+      на кладенче за вода.<br>
+      Нямало е вода,<br>
+      имало е мечка.</em></p>
+<p><p><em>Мечка, мечко, мечице,<br>
+мечо, зло детенце,<br>
+ти защо си дошло тук,<br>
+в моята градина?</em></p></p>
+<p><p><em>&quot;Дошло съм да те гоня,<br>
+ти да си не спомняш<br>
+как бе ме разгонил<br>
+от твоята градина!&quot;</em></p></p>
+<p><p><em>Хайде, хайде, мечице,<br>
+в горите да живееш,<br>
+че тук е село наше,<br>
+на хора градина!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🎶 Лале ли си, зюмбюл ли си</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Лале ли си, зюмбюл ли си,<br>
+      моме ле, Радке?<br>
+      Червена ябълка ли си,<br>
+      зелена круша ли си?</em></p>
+<p><p><em>Нито съм лале, зюмбюл,<br>
+ни червена ябълка,<br>
+ни зелена круша съм -<br>
+девойче мила съм!</em></p></p>
+<p><p><em>Ще се женя, мамо,<br>
+за мома Радка.<br>
+Най-хубавата е тя<br>
+в нашето село!</em></p></p>
+<p><p><em>Лале ли си, зюмбюл ли си,<br>
+моме ле, Радке?<br>
+Слънце мое ясно ли си,<br>
+звездичко любима ли си?</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🌻 Слънце, слънце, огрей ме</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Слънце, слънце, огрей ме,<br>
+      че съм мъничка,<br>
+      че съм маленичка,<br>
+      и ме майка люби!</em></p>
+<p><p><em>Дай ми топло, дай ми светло,<br>
+да порасна голяма,<br>
+да ходя по цвятна поляна,<br>
+да бера цветенца!</em></p></p>
+<p><p><em>Слънце, слънце, огрей ме,<br>
+дай на пиленцето топлина,<br>
+дай на цветенцето светлина,<br>
+дай на всички радост!</em></p></p>
+<p><p><em>Зайчето скача, играе,<br>
+пиленцето пее, припява,<br>
+а детенцето се смее -<br>
+слънцето огрява!</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🐓 Кукуригу, запя петелът</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Кукуригу, запя петелът,<br>
+      че денят изгрява.<br>
+      Мама иде, мама иде,<br>
+      хляб тя ми принася!</em></p>
+<p><p><em>Ставай, ставай, малко дете,<br>
+че денят дохожда.<br>
+Слънце грее, птичка пее,<br>
+утро се завива!</em></p></p>
+<p><p><em>Кукуригу, пей, петльо,<br>
+събуди деца та.<br>
+Хайде в гора, на поляна,<br>
+да берем цветя!</em></p></p>
+<p><p><em>Червен мак и син зюмбюл,<br>
+жълта маргаритка.<br>
+Ще направим китка хубава<br>
+за мама любима!</em></p>
+</div></p>
+  </div>
+  <h2 id="stihove">📝 Стихотворения</h2>
+  <div class="card">
+    <h3>🌸 Момиче - Ран Босилек</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Едно момиченце<br>
+      събираше цветя.<br>
+      Цяла лятна утрин<br>
+      бе в полето то.</em></p>
+<p><p><em>Прибра се към пладне,<br>
+щастливо, весело -<br>
+малката му ръчка<br>
+пълна бе с цветя.</em></p></p>
+<p><p><em>В очичките ясни<br>
+радост се виждаше -<br>
+весела усмивка<br>
+играеше в тях.</em></p></p>
+<p><p><em>Дойде при майчица,<br>
+цветята й даде:<br>
+&quot;Вземи, мамо, вземи,<br>
+за тебе ги брах!&quot;</br></em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🦋 Пеперудата - Леда Милева</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Хвърчаше пеперуда<br>
+      из цветната градина<br>
+      и на всяко цветенце<br>
+      кацаше тя малко.</em></p>
+<p><p><em>На жълтия кокиче,<br>
+на червеното лале,<br>
+на синия зюмбюл<br>
+и на белия теменужка.</em></p></p>
+<p><p><em>И всяко цветенце<br>
+радостно я посреща:<br>
+&quot;Ела, ела при мене,<br>
+скъпа пеперудо!&quot;</em></p></p>
+<p><p><em>Но тя си хвърча весела,<br>
+от цвете на цвете,<br>
+и песничка си пее:<br>
+&quot;Обичам ви, цветенца!&quot;</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🌲 В гората - Асен Босев</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>В гората се чуват шумове.<br>
+      Някой хрупа клончета.<br>
+      Някой шава из храстите.<br>
+      Някой чука в дърветата.</em></p>
+<p><p><em>Вятърът подухва лекичко,<br>
+люлее короните.<br>
+Птичките си прощяваха,<br>
+летят към топлите страни.</em></p></p>
+<p><p><em>А елхичката зелена<br>
+стои си тъй величава.<br>
+Казва: &quot;Аз ще остана тук,<br>
+зимата ще пресрещна!&quot;</em></p></p>
+<p><p><em>Белият заек подскача,<br>
+проследи я с очички.<br>
+&quot;Добре,&quot; рече той, &quot;ще дойда<br>
+под твойте клонки да спя.&quot;</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>☀️ Слънчевите зайчета - Дора Габе</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Слънчевите зайчета<br>
+      скачат на поляната,<br>
+      между зелената трева,<br>
+      между жълтите цветя.</em></p>
+<p><p><em>Скачат весело, играят,<br>
+златно светят, огряват,<br>
+на детенцата усмивка<br>
+на бузите рисуват.</em></p></p>
+<p><p><em>Ето един скочи в реката,<br>
+после още и още.<br>
+Цялата вода засия,<br>
+стана като злато!</em></p></p>
+<p><p><em>Скачат, скачат из гората,<br>
+по листа, по клонки,<br>
+а когато слънце зайде -<br>
+отиват си в небето.</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🌙 Вечерна приказка - Валери Петров</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Вечерта дойде тихичко,<br>
+      спусна се на селото.<br>
+      Слънцето се скри далече,<br>
+      зад зелената планина.</em></p>
+<p><p><em>Звездичките се появиха,<br>
+засветиха на небето.<br>
+Месечинка изгря бавно,<br>
+сребърна и свет ла.</em></p></p>
+<p><p><em>Децата си легнаха,<br>
+затвориха си очички.<br>
+Мама тихо им прошепва:<br>
+&quot;Лека нощ, мои съкровища!&quot;</em></p></p>
+<p><p><em>И заспаха децата,<br>
+сладък сън ги затули.<br>
+Ангели ги пазят в нощта,<br>
+до утрото, до светлина.</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🐦 Врабчето - Ран Босилек</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>На тревата зелена<br>
+      кацна едно врабче.<br>
+      То подскачаше весело<br>
+      и зърнца търсеше.</em></p>
+<p><p><em>&quot;Чик, чирик, чик, чирик!&quot; -<br>
+припяваше то весело.<br>
+&quot;Слънчево утро е днес,<br>
+ще бъде хубаво време!&quot;</em></p></p>
+<p><p><em>Едно дете го видя,<br>
+хляб му хвърли трошички.<br>
+Врабчето кълва радостно,<br>
+кимаше благодарно.</em></p></p>
+<p><p><em>&quot;Чик, чирик&quot; - благодари,<br>
+после полетя високо.<br>
+Отиде при малките си,<br>
+в гнездото под стряхата.</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🌺 Градината - Леда Милева</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>В градината ми растат<br>
+      жълти слънчогледи.<br>
+      Високи са, величави,<br>
+      към слънцето гледат.</em></p>
+<p><p><em>Растат рози и карамфили,<br>
+лалета и теменуги.<br>
+Всяко цвете е прекрасно,<br>
+всяко мирише хубаво.</em></p></p>
+<p><p><em>Ала най-хубави са<br>
+за мене маргаритките -<br>
+бели като сняг зимен,<br>
+с жълто сърце златно.</em></p></p>
+<p><p><em>Обичам аз градината,<br>
+всяка сутрин я поливам.<br>
+Тя ми благодари с цветя,<br>
+с мирис и с красота.</em></p>
+</div></p>
+  </div>
+  <div class="card">
+    <h3>🎈 Балонът - Асен Босев</h3>
+    <div style="background: #f9f9f9; padding: 15px; border-left: 4px solid #667eea; margin: 10px 0;">
+      <p><em>Купих си червен балон,<br>
+      най-хубавия на света.<br>
+      Той летеше над главата ми,<br>
+      връзан с тънко конче.</em></p>
+<p><p><em>Но конецът се скъса<br>
+и балонът полетя.<br>
+Все по-горе, все по-горе,<br>
+към небето синьо.</em></p></p>
+<p><p><em>&quot;Върни се, балонче!&quot; - викам,<br>
+но той не ме слуша.<br>
+Отива към бели облаци,<br>
+изгубва се в небето.</em></p></p>
+<p><p><em>Не плачи, казва татко,<br>
+купи ще ти друг.<br>
+Но аз си спомням червения -<br>
+той беше най-хубав!</em></p>
+</div></p>
+  </div>
+</div>
+<style>
+/* Styling for the fun stories page */
+.card {
+  background: white;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.card h3 {
+  color: #667eea;
+  margin-top: 0;
+}
+
+.card h4 {
+  color: #764ba2;
+  margin: 15px 0 5px 0;
+}
+
+.card p {
+  line-height: 1.6;
+  color: #333;
+}
+
+.card em {
+  color: #555;
+  font-style: italic;
+}
+</style>
+  <div class="card">
+    <h3>Класически приспивни песни</h3>
+<p><h4>🌙 Спи, детенце</h4>
+<blockquote style="font-style: italic; border-left: 4px solid #667eea; padding-left: 20px;">
+Спи, детенце, спи,<br>
+Нека мама те люли.<br>
+Ний те с татко чакахме,<br>
+За тебе се молехме.<br>
+Спи, детенце, спи,<br>
+Ангелите те пазят.<br>
+Лека нощ, сладки сънища,<br>
+Утре слънце ще припече.
+</blockquote></p>
+<p><h4>⭐ Мила мамо</h4>
+<blockquote style="font-style: italic; border-left: 4px solid #667eea; padding-left: 20px;">
+Мила мамо, не плачи,<br>
+Лули, лули, лули.<br>
+Порасна ли, ще дойда,<br>
+Ще донеса подаръци,<br>
+Една роза червена,<br>
+За мама моя мила.
+</blockquote></p>
+  </div>
+  <h2>🎭 Стихчета и римувки</h2>
+  <div class="card">
+    <h3>Забавни детски стихове</h3>
+<p><h4>🐰 Зайчето бяло</h4>
+<blockquote style="font-style: italic; border-left: 4px solid #667eea; padding-left: 20px;">
+Зайче бяло, зайче мило,<br>
+Къде си тичало?<br>
+Из гората съм ходило,<br>
+Моркови съм търсило.<br>
+Мама, тате, братчета -<br>
+Чакат ме вкъщи.<br>
+Зайче бяло, зайче мило,<br>
+Бързо си тичай!
+</blockquote></p>
+<p><h4>🌧️ Дъжд</h4>
+<blockquote style="font-style: italic; border-left: 4px solid #667eea; padding-left: 20px;">
+Дъжд, дъжд иде,<br>
+Земята пие.<br>
+Цвете расте,<br>
+Слънце грее,<br>
+Дъга се вее!
+</blockquote></p>
+  </div>
+  <h2>🎼 Детски песнички</h2>
+  <div class="card">
+    <h3>Популярни български детски песни</h3>
+<p><ul>
+<li><strong>🌞 &quot;Изгряло е слънце&quot;</strong> - сутрешна песничка</li>
+<li><strong>🐝 &quot;Пчелица&quot;</strong> - за трудолюбието</li>
+<li><strong>🌳 &quot;В гората&quot;</strong> - за животните</li>
+<li><strong>🎈 &quot;Има една градина&quot;</strong> - игрова песен</li>
+<li><strong>🎨 &quot;Моливче, моливче&quot;</strong> - за творчеството</li>
+<li><strong>🚂 &quot;Влакче&quot;</strong> - за пътуванията</li>
+<li><strong>❄️ &quot;Снежинки&quot;</strong> - зимна песничка</li>
+<li><strong>🌸 &quot;Пролет&quot;</strong> - за пролетта</li>
+</ul></p>
+  </div>
+  <h2>📖 Съвременни автори</h2>
+  <div class="card">
+    <h3>Препоръчани български детски книги</h3>
+<p><ul>
+<li><strong>Ран Босилек</strong> - &quot;Патиланци&quot;, &quot;Въртележка&quot;</li>
+<li><strong>Леда Милева</strong> - &quot;Приказки за Ани&quot;</li>
+<li><strong>Елка Константинова</strong> - &quot;Момчето с цигулката&quot;</li>
+<li><strong>Асен Босев</strong> - &quot;Вяра в приказките&quot;</li>
+<li><strong>Валери Петров</strong> - &quot;Китка от луличка&quot;</li>
+<li><strong>Дора Габе</strong> - &quot;Приказки от вятъра&quot;</li>
+</ul></p>
+  </div>
+  <div class="alert alert-warning">
+    <h3>💡 Съвети за родители</h3>
+    <ul>
+      <li>Четете на глас с различни гласове за персонажите</li>
+      <li>Показвайте картинките и обсъждайте историята</li>
+      <li>Задавайте въпроси: "Какво мислиш, че ще стане после?"</li>
+      <li>Свързвайте приказките с реалния живот</li>
+      <li>Създайте ритуал за приказки преди лягане</li>
+      <li>Позволете на детето да избира книги</li>
+    </ul>
+  </div>
+  <h2>🎯 Как да използваме приказките?</h2>
+  <div class="card-grid">
+    <div class="card">
+      <h3>👶 0-2 години</h3>
+      <ul>
+        <li>Къси римувки и повторения</li>
+        <li>Книги с текстури и звуци</li>
+        <li>5-10 минути четене</li>
+        <li>Много картинки, малко текст</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>🧒 3-5 години</h3>
+      <ul>
+        <li>Прости народни приказки</li>
+        <li>Римувани стихчета</li>
+        <li>10-20 минути четене</li>
+        <li>Интерактивни книги</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>👦 6+ години</h3>
+      <ul>
+        <li>По-дълги истории</li>
+        <li>Епични приказки</li>
+        <li>20-30 минути четене</li>
+        <li>Обсъждане на морала</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+  </main>
+
+  <footer>
+  <div class="container">
+    <div class="grid-3">
+      <div>
+        <h3>За Майчинство BG</h3>
+        <p>Майчинство BG е ресурс за родители в България. Предоставяме надеждна информация за грижи за бебета и деца от раждането до юношеската възраст - здраве, хранене, развитие и много повече.</p>
+      </div>
+      <div>
+        <h3>Полезни връзки</h3>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="/about/">За нас</a></li>
+          <li><a href="/privacy/">Поверителност</a></li>
+          <li><a href="/cookies/">Бисквитки</a></li>
+          <li><a href="/resources/">Ресурси</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Свържете се с нас</h3>
+        <p>Email: info@majchinstvo.bg<br>
+        Телефон: +359 888 123 456</p>
+        <p style="margin-top:1rem;">Намерете ни в социалните мрежи</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.2);">
+      © 2025 Майчинство BG. Всички права запазени.
+    </p>
+  </div>
+</footer>
+
+
+  <script>
+    // Site Search Functionality
+    const searchData = [
+      // Възрасти
+      { title: "Бременност", url: "/pregnancy/", desc: "Информация за бременност и очакване на бебе" },
+      { title: "Новородено (0-12м)", url: "/newborn/", desc: "Грижи за новородено бебе" },
+      { title: "Малки деца (1-3г)", url: "/toddler/", desc: "Развитие на малки деца" },
+      { title: "Предучилищна възраст (3-5г)", url: "/preschool/", desc: "Подготовка за училище" },
+      { title: "Училищна възраст (6-12г)", url: "/school-age/", desc: "Училищни години" },
+      { title: "Юношество (13-18г)", url: "/adolescence/", desc: "Тийнейджърска възраст" },
+      
+      // Здраве
+      { title: "Общо здраве", url: "/health/", desc: "Детско здраве и превенция" },
+      { title: "Спешен справочник", url: "/health/emergency-guide/", desc: "Кога да се обадите на лекар, спешни ситуации" },
+      { title: "Етапи на развитие", url: "/health/developmental-milestones/", desc: "Проследяване на развитието по месеци" },
+      { title: "Хранене и диети", url: "/nutrition/", desc: "Здравословно хранене за деца" },
+      { title: "Психично здраве", url: "/mental-health/", desc: "Емоционално здраве и подкрепа" },
+      { title: "Самогрижа за майки", url: "/self-care/", desc: "Грижа за себе си като родител" },
+      
+      // Инструменти
+      { title: "Калкулатор за раждане", url: "/gadgets/due-date/", desc: "Изчислете датата на раждане" },
+      { title: "BMI калкулатор", url: "/gadgets/bmi/", desc: "Индекс на телесна маса" },
+      { title: "Проследяване на растежа", url: "/gadgets/growth-tracker/", desc: "WHO перцентили за тегло и ръст" },
+      { title: "График на ваксинации", url: "/gadgets/vaccination-schedule/", desc: "Национален ваксинационен календар" },
+      { title: "Таймер на контракции", url: "/pregnancy/contraction-timer/", desc: "Проследяване на контракции при раждане" },
+      { title: "Чеклисти", url: "/resources/checklists/", desc: "Списъци за болница, бебешки принадлежности" },
+      { title: "Препоръки за продукти", url: "/resources/product-recommendations/", desc: "Какво да купите за бебето" },
+      
+      // Забавление
+      { title: "Занимания по възрасти", url: "/fun/activities/", desc: "Образователни дейности за деца" },
+      { title: "Приказки и песнички", url: "/fun/stories/", desc: "Български приказки и детски песни" },
+      { title: "Креативни дейности", url: "/fun/creativity/", desc: "Рисуване, моделиране, занаяти" },
+      { title: "Празници и традиции", url: "/fun/holidays/", desc: "Български празници и обичаи" },
+      { title: "Интерактивни игри", url: "/fun/games/", desc: "Онлайн игри за деца - паметна игра, оцветяване" },
+      { title: "Активности на открито", url: "/fun/outdoor/", desc: "Игри и занимания навън" },
+      
+      // Други
+      { title: "FAQ - Често задавани въпроси", url: "/faq/", desc: "Отговори на чести въпроси за майчинство" },
+      { title: "Образование", url: "/education/", desc: "Детска градина и училище в България" },
+      { title: "Правни въпроси", url: "/legal/", desc: "Родителски права и задължения" },
+      { title: "Семейни отношения", url: "/relationships/", desc: "Партньорство и семейна динамика" },
+      { title: "За нас", url: "/about/", desc: "За сайта Майчинство BG" }
+    ];
+
+    const searchInput = document.getElementById('site-search');
+    const searchResults = document.getElementById('search-results');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+          searchResults.classList.remove('active');
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        const results = searchData.filter(item => 
+          item.title.toLowerCase().includes(query) || 
+          item.desc.toLowerCase().includes(query) ||
+          item.url.toLowerCase().includes(query)
+        ).slice(0, 8);
+
+        if (results.length === 0) {
+          searchResults.innerHTML = '<div class="search-no-results">Няма намерени резултати за "' + query + '"</div>';
+          searchResults.classList.add('active');
+          return;
+        }
+
+        searchResults.innerHTML = results.map(item => `
+          <div class="search-result-item" onclick="window.location.href='${item.url}'">
+            <div class="search-result-title">${item.title}</div>
+            <div class="search-result-desc">${item.desc}</div>
+          </div>
+        `).join('');
+
+        searchResults.classList.add('active');
+      });
+
+      // Close search results when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.header-search')) {
+          searchResults.classList.remove('active');
+        }
+      });
+
+      // Navigate with keyboard
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          searchResults.classList.remove('active');
+          searchInput.blur();
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>

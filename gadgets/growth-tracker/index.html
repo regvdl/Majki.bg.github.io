@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+<html lang="bg">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Проследете растежа на вашето бебе с нашия интерактивен калкулатор. Сравнете теглото, ръста и обиколката на главата с перцентилите на СЗО.">
+  <meta name="keywords" content="майчинство, бременност, бебе, родителство, грижи за бебето, новородено, кърмене, здраве на детето, етапи на развитие, съвети за родители">
+  <meta name="author" content="Motherhood.bg">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://motherhood.bg/gadgets/growth-tracker/">
+  <meta property="og:title" content="Проследяване на растежа - Motherhood.bg">
+  <meta property="og:description" content="Проследете растежа на вашето бебе с нашия интерактивен калкулатор. Сравнете теглото, ръста и обиколката на главата с перцентилите на СЗО.">
+  <meta property="og:image" content="https://motherhood.bg/assets/og-image.jpg">
+  <meta property="og:locale" content="bg_BG">
+  
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:url" content="https://motherhood.bg/gadgets/growth-tracker/">
+  <meta name="twitter:title" content="Проследяване на растежа - Motherhood.bg">
+  <meta name="twitter:description" content="Проследете растежа на вашето бебе с нашия интерактивен калкулатор. Сравнете теглото, ръста и обиколката на главата с перцентилите на СЗО.">
+  <meta name="twitter:image" content="https://motherhood.bg/assets/og-image.jpg">
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="https://motherhood.bg/gadgets/growth-tracker/">
+  
+  <title>Проследяване на растежа - Motherhood.bg</title>
+  
+  <!-- Schema.org structured data -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "name": "Motherhood.bg",
+    "url": "https://motherhood.bg",
+    "description": "Надежден източник на информация за майчинство и родителство в България",
+    "inLanguage": "bg",
+    "publisher": {
+      "@type": "Organization",
+      "name": "Motherhood.bg",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://motherhood.bg/assets/logo.png"
+      }
+    }
+  }
+  </script>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    :root {
+      --primary-color: #667eea;
+      --secondary-color: #764ba2;
+      --text-color: #333;
+      --bg-color: #f9fafb;
+      --white: #ffffff;
+      --border-color: #e2e8f0;
+      --shadow: 0 2px 10px rgba(0,0,0,0.08);
+      --shadow-hover: 0 5px 20px rgba(0,0,0,0.12);
+    }
+
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+      line-height: 1.6;
+      color: var(--text-color);
+      background: var(--bg-color);
+    }
+
+    /* Header Styles */
+    .site-header {
+      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+      color: white;
+      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .site-header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      min-height: 70px;
+    }
+
+    .logo a {
+      color: white;
+      text-decoration: none;
+      font-size: 1.5rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      transition: transform 0.3s;
+    }
+
+    .logo a:hover {
+      transform: scale(1.05);
+    }
+
+    .logo-image {
+      height: 50px;
+      width: auto;
+      display: block;
+      border-radius: 8px;
+    }
+
+    .logo-icon {
+      font-size: 2rem;
+    }
+
+    /* Mobile Menu Toggle */
+    .mobile-menu-toggle {
+      display: none;
+      flex-direction: column;
+      gap: 5px;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 5px;
+    }
+
+    .mobile-menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background: white;
+      border-radius: 2px;
+      transition: all 0.3s;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(1) {
+      transform: rotate(45deg) translate(8px, 6px);
+    }
+
+    .mobile-menu-toggle.active span:nth-child(2) {
+      opacity: 0;
+    }
+
+    .mobile-menu-toggle.active span:nth-child(3) {
+      transform: rotate(-45deg) translate(7px, -5px);
+    }
+
+    /* Navigation */
+    .main-nav {
+      flex: 1;
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .nav-list {
+      list-style: none;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin: 0;
+      padding: 0;
+    }
+
+    .nav-item {
+      position: relative;
+    }
+
+    .nav-link {
+      color: white;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 10px 15px;
+      display: block;
+      border-radius: 5px;
+      transition: background 0.3s;
+      white-space: nowrap;
+    }
+
+    .nav-link:hover {
+      background: rgba(255,255,255,0.1);
+      text-decoration: none;
+    }
+
+    .arrow {
+      font-size: 0.7em;
+      margin-left: 5px;
+    }
+
+    /* Dropdown */
+    .dropdown {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      background: white;
+      min-width: 250px;
+      border-radius: 8px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      opacity: 0;
+      visibility: hidden;
+      transform: translateY(-10px);
+      transition: all 0.3s;
+      list-style: none;
+      padding: 10px 0;
+      margin-top: 5px;
+    }
+
+    .has-dropdown:hover .dropdown {
+      opacity: 1;
+      visibility: visible;
+      transform: translateY(0);
+    }
+
+    .dropdown li {
+      margin: 0;
+    }
+
+    .dropdown a {
+      color: var(--text-color);
+      padding: 12px 20px;
+      display: block;
+      transition: background 0.2s;
+      text-decoration: none;
+    }
+
+    .dropdown a:hover {
+      background: var(--bg-color);
+      color: var(--primary-color);
+      text-decoration: none;
+    }
+
+    /* Content */
+    .content {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 40px 20px;
+      background: white;
+      min-height: calc(100vh - 300px);
+      border-radius: 10px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow);
+    }
+
+    main {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .hero-image {
+      width: 100%;
+      max-width: 100%;
+      height: 400px;
+      object-fit: cover;
+      border-radius: 15px;
+      margin-bottom: 30px;
+      box-shadow: var(--shadow-hover);
+    }
+
+    /* Typography */
+    h1 {
+      font-size: clamp(2rem, 5vw, 2.5rem);
+      color: var(--primary-color);
+      margin-bottom: 20px;
+      font-weight: 700;
+    }
+
+    h2 {
+      font-size: clamp(1.5rem, 4vw, 2rem);
+      color: var(--text-color);
+      margin-top: 40px;
+      margin-bottom: 20px;
+      border-bottom: 3px solid var(--primary-color);
+      padding-bottom: 10px;
+    }
+
+    h3 {
+      font-size: clamp(1.2rem, 3vw, 1.5rem);
+      color: var(--primary-color);
+      margin-top: 25px;
+      margin-bottom: 15px;
+    }
+
+    h4 {
+      font-size: clamp(1rem, 2.5vw, 1.2rem);
+      color: var(--text-color);
+      margin-top: 20px;
+      margin-bottom: 10px;
+      font-weight: 600;
+    }
+
+    p {
+      margin-bottom: 15px;
+      line-height: 1.8;
+    }
+
+    ul, ol {
+      margin-left: 30px;
+      margin-bottom: 20px;
+    }
+
+    li {
+      margin-bottom: 10px;
+      line-height: 1.7;
+    }
+
+    a {
+      color: var(--primary-color);
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    a:hover {
+      color: var(--secondary-color);
+      text-decoration: underline;
+    }
+
+    /* Alerts */
+    .alert {
+      padding: 20px;
+      border-radius: 10px;
+      margin: 25px 0;
+      border-left: 5px solid;
+    }
+
+    .alert-info {
+      background: #ebf8ff;
+      border-color: #3182ce;
+      color: #2c5282;
+    }
+
+    .alert-warning {
+      background: #fffbeb;
+      border-color: #f59e0b;
+      color: #92400e;
+    }
+
+    .alert-danger {
+      background: #fef2f2;
+      border-color: #dc2626;
+      color: #7f1d1d;
+    }
+
+    .alert h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    /* Cards */
+    .card {
+      background: white;
+      border-radius: 10px;
+      padding: 25px;
+      margin-bottom: 25px;
+      box-shadow: var(--shadow);
+      transition: transform 0.3s, box-shadow 0.3s;
+      border: 1px solid var(--border-color);
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: var(--shadow-hover);
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      height: 200px;
+      object-fit: cover;
+    }
+
+    .card h3 {
+      margin-top: 0;
+      margin-bottom: 10px;
+    }
+
+    .card-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 25px;
+      margin: 30px 0;
+    }
+    
+    .card-grid .card {
+      width: 100%;
+      margin-bottom: 0;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-block;
+      padding: 12px 30px;
+      background: var(--primary-color);
+      color: white;
+      text-decoration: none;
+      border-radius: 25px;
+      font-weight: 600;
+      transition: all 0.3s;
+      border: none;
+      cursor: pointer;
+      text-align: center;
+    }
+
+    .btn:hover {
+      background: var(--secondary-color);
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(102,126,234,0.3);
+      text-decoration: none;
+      color: white;
+    }
+
+    /* Details/Summary */
+    details {
+      background: var(--bg-color);
+      padding: 15px;
+      border-radius: 8px;
+      margin-bottom: 15px;
+      border: 1px solid var(--border-color);
+    }
+
+    summary {
+      cursor: pointer;
+      font-weight: 600;
+      color: var(--primary-color);
+      padding: 5px;
+      outline: none;
+    }
+
+    summary:hover {
+      color: var(--secondary-color);
+    }
+
+    details[open] summary {
+      margin-bottom: 15px;
+      border-bottom: 1px solid var(--border-color);
+      padding-bottom: 10px;
+    }
+
+    /* Tables */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 20px 0;
+      overflow-x: auto;
+      display: block;
+    }
+
+    thead, tbody {
+      display: table;
+      width: 100%;
+    }
+
+    th, td {
+      padding: 12px;
+      text-align: left;
+      border: 1px solid var(--border-color);
+    }
+
+    th {
+      background: var(--primary-color);
+      color: white;
+      font-weight: 600;
+    }
+
+    tr:nth-child(even) {
+      background: var(--bg-color);
+    }
+
+    /* Footer */
+    footer {
+      background: #2d3748;
+      color: white;
+      padding: 40px 20px 30px;
+      margin-top: 60px;
+    }
+
+    footer .container {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    footer a {
+      color: #90cdf4;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: white;
+    }
+
+    .footer-links {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a {
+      margin: 0;
+    }
+
+    /* Search Functionality */
+    .header-search {
+      position: relative;
+      flex: 0 0 auto;
+      width: 300px;
+      margin-left: 20px;
+    }
+
+    #site-search {
+      width: 100%;
+      padding: 10px 15px;
+      border: 2px solid #e0e0e0;
+      border-radius: 25px;
+      font-size: 0.95rem;
+      transition: all 0.3s;
+      outline: none;
+    }
+
+    #site-search:focus {
+      border-color: var(--primary-color);
+      box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.1);
+    }
+
+    .search-results {
+      position: absolute;
+      top: 100%;
+      left: 0;
+      right: 0;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      max-height: 400px;
+      overflow-y: auto;
+      z-index: 1000;
+      display: none;
+      margin-top: 5px;
+    }
+
+    .search-results.active {
+      display: block;
+    }
+
+    .search-result-item {
+      padding: 12px 15px;
+      border-bottom: 1px solid #f0f0f0;
+      cursor: pointer;
+      transition: background 0.2s;
+    }
+
+    .search-result-item:hover {
+      background: #f8f9fa;
+    }
+
+    .search-result-item:last-child {
+      border-bottom: none;
+    }
+
+    .search-result-title {
+      font-weight: bold;
+      color: var(--primary-color);
+      margin-bottom: 3px;
+    }
+
+    .search-result-desc {
+      font-size: 0.85rem;
+      color: #666;
+    }
+
+    .search-no-results {
+      padding: 20px;
+      text-align: center;
+      color: #999;
+    }
+
+    /* Mobile Responsive */
+    @media (max-width: 992px) {
+      .nav-list {
+        gap: 2px;
+      }
+
+      .nav-link {
+        padding: 8px 10px;
+        font-size: 0.9rem;
+      }
+
+      .dropdown {
+        min-width: 220px;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .mobile-menu-toggle {
+        display: flex;
+      }
+
+      .header-search {
+        width: 100%;
+        margin: 10px 0;
+        order: 3;
+      }
+      
+      .header-content {
+        flex-wrap: wrap;
+      }
+      
+      .logo {
+        order: 1;
+      }
+      
+      .mobile-menu-toggle {
+        order: 2;
+      }
+      
+      .main-nav {
+        order: 4;
+        width: 100%;
+      }
+
+      .main-nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background: white;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+      }
+
+      .main-nav.active {
+        max-height: 600px;
+      }
+
+      .nav-list {
+        flex-direction: column;
+        align-items: stretch;
+        padding: 10px 0;
+      }
+
+      .nav-item {
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .nav-link {
+        color: var(--text-color);
+        padding: 15px 20px;
+      }
+
+      .has-dropdown .dropdown {
+        position: static;
+        opacity: 1;
+        visibility: visible;
+        transform: none;
+        box-shadow: none;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s;
+        padding: 0;
+        margin: 0;
+      }
+
+      .has-dropdown.active .dropdown {
+        max-height: 500px;
+        padding: 10px 0;
+      }
+
+      .dropdown a {
+        padding-left: 40px;
+        font-size: 0.9rem;
+      }
+
+      .hero-image {
+        height: 250px;
+      }
+
+      .card-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .content {
+        margin-top: 15px;
+        margin-bottom: 15px;
+        padding: 25px 15px;
+      }
+
+      .footer-links {
+        flex-direction: column;
+        gap: 10px;
+      }
+    }
+    
+    /* Tablet - 2 колони */
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .card-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 480px) {
+      .logo-text {
+        font-size: 1.2rem;
+      }
+
+      .logo-icon {
+        font-size: 1.5rem;
+      }
+    }
+  </style>
+  <script>
+    // Mobile menu toggle
+    document.addEventListener('DOMContentLoaded', function() {
+      const toggle = document.querySelector('.mobile-menu-toggle');
+      const nav = document.querySelector('.main-nav');
+      const dropdowns = document.querySelectorAll('.has-dropdown');
+
+      if (toggle) {
+        toggle.addEventListener('click', function() {
+          toggle.classList.toggle('active');
+          nav.classList.toggle('active');
+        });
+      }
+
+      // Mobile dropdown toggle
+      if (window.innerWidth <= 768) {
+        dropdowns.forEach(dropdown => {
+          const link = dropdown.querySelector('.nav-link');
+          link.addEventListener('click', function(e) {
+            e.preventDefault();
+            dropdown.classList.toggle('active');
+          });
+        });
+      }
+    });
+  </script>
+</head>
+<body>
+  
+  <header class="site-header">
+  <div class="container">
+    <div class="header-content">
+      <div class="logo">
+        <a href="/">
+          <img src="/Mayki.bg.jpg" alt="Майчинство BG" class="logo-image">
+        </a>
+      </div>
+      
+      <button class="mobile-menu-toggle" aria-label="Меню">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+
+      <nav class="main-nav">
+        <ul class="nav-list">
+          <!-- Възрасти на детето -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Възрасти <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/pregnancy/">🤰 Бременност</a></li>
+              <li><a href="/newborn/">👶 Новородено (0-12м)</a></li>
+              <li><a href="/toddler/">🧸 Малки деца (1-3г)</a></li>
+              <li><a href="/preschool/">🎨 Предучилищна (3-5г)</a></li>
+              <li><a href="/school-age/">📚 Училищна (6-12г)</a></li>
+              <li><a href="/adolescence/">🎓 Юношество (13-18г)</a></li>
+            </ul>
+          </li>
+
+          <!-- Здраве и грижи -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Здраве <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/health/">🏥 Общо здраве</a></li>
+              <li><a href="/health/emergency-guide/">🚨 Спешен справочник</a></li>
+              <li><a href="/health/developmental-milestones/">📊 Етапи на развитие</a></li>
+              <li><a href="/nutrition/">🥗 Хранене</a></li>
+              <li><a href="/mental-health/">💭 Психично здраве</a></li>
+              <li><a href="/self-care/">💆 Самогрижа</a></li>
+            </ul>
+          </li>
+
+          <!-- Образование и развитие -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Образование <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/education/">🏫 Образователна система</a></li>
+              <li><a href="/legal/">⚖️ Правни въпроси</a></li>
+              <li><a href="/relationships/">👨‍👩‍👧 Семейни отношения</a></li>
+            </ul>
+          </li>
+
+          <!-- Инструменти и ресурси -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Инструменти <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/resources/">📋 Всички ресурси</a></li>
+              <li><a href="/resources/checklists/">✅ Чеклисти</a></li>
+              <li><a href="/resources/product-recommendations/">🛍️ Препоръки за продукти</a></li>
+              <li><a href="/gadgets/due-date/">📅 Калкулатор за раждане</a></li>
+              <li><a href="/gadgets/bmi/">⚖️ BMI калкулатор</a></li>
+              <li><a href="/gadgets/growth-tracker/">📏 Проследяване на растежа</a></li>
+              <li><a href="/gadgets/vaccination-schedule/">💉 График ваксинации</a></li>
+              <li><a href="/pregnancy/contraction-timer/">⏱️ Таймер на контракции</a></li>
+              <li><a href="/wellness/">🧘 Холистично здраве</a></li>
+            </ul>
+          </li>
+
+          <!-- Забавление -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link">Забавление <span class="arrow">▼</span></a>
+            <ul class="dropdown">
+              <li><a href="/fun/activities/">🎨 Занимания по възрасти</a></li>
+              <li><a href="/fun/stories/">📚 Приказки и песнички</a></li>
+              <li><a href="/fun/creativity/">🎭 Креативни дейности</a></li>
+              <li><a href="/fun/holidays/">🎉 Празници и традиции</a></li>
+              <li><a href="/fun/games/">🎲 Интерактивни игри</a></li>
+              <li><a href="/fun/outdoor/">🌳 Активности на открито</a></li>
+            </ul>
+          </li>
+
+          <!-- За нас -->
+          <li class="nav-item">
+            <a href="/faq/" class="nav-link">FAQ</a>
+          </li>
+          <li class="nav-item">
+            <a href="/about/" class="nav-link">За нас</a>
+          </li>
+        </ul>
+      </nav>
+      
+      <div class="header-search">
+        <input type="text" id="site-search" placeholder="🔍 Търси в сайта..." autocomplete="off">
+        <div id="search-results" class="search-results"></div>
+      </div>
+    </div>
+  </div>
+</header>
+
+
+  <main>
+    <div class="container">
+  <h1>📊 Проследяване на растежа</h1>
+  <p class="intro">Проследете развитието на вашето дете и сравнете показателите с препоръките на Световната здравна организация (СЗО).</p>
+  <div class="card">
+    <h2>Въведете данни за детето</h2>
+<p><div style="max-width: 600px; margin: 0 auto;">
+<div style="margin-bottom: 20px;">
+<label for="child-gender" style="display: block; margin-bottom: 5px; font-weight: bold;">Пол на детето:</label>
+<select id="child-gender" style="width: 100%; padding: 10px; font-size: 1rem; border: 2px solid #667eea; border-radius: 5px;">
+<option value="male">Момче</option>
+<option value="female">Момиче</option>
+</select>
+</div></p>
+<p><div style="margin-bottom: 20px;">
+<label for="child-age-months" style="display: block; margin-bottom: 5px; font-weight: bold;">Възраст (месеци):</label>
+<input type="number" id="child-age-months" min="0" max="60" placeholder="Напр. 6" style="width: 100%; padding: 10px; font-size: 1rem; border: 2px solid #667eea; border-radius: 5px;">
+<small style="color: #666;">За бебета под 1 месец използвайте 0</small>
+</div></p>
+<p><div style="margin-bottom: 20px;">
+<label for="child-weight" style="display: block; margin-bottom: 5px; font-weight: bold;">Тегло (кг):</label>
+<input type="number" id="child-weight" step="0.1" min="0" max="30" placeholder="Напр. 7.5" style="width: 100%; padding: 10px; font-size: 1rem; border: 2px solid #667eea; border-radius: 5px;">
+</div></p>
+<p><div style="margin-bottom: 20px;">
+<label for="child-height" style="display: block; margin-bottom: 5px; font-weight: bold;">Ръст (см):</label>
+<input type="number" id="child-height" step="0.1" min="0" max="150" placeholder="Напр. 68.5" style="width: 100%; padding: 10px; font-size: 1rem; border: 2px solid #667eea; border-radius: 5px;">
+</div></p>
+<p><div style="margin-bottom: 20px;">
+<label for="child-head" style="display: block; margin-bottom: 5px; font-weight: bold;">Обиколка на главата (см) - незадължително:</label>
+<input type="number" id="child-head" step="0.1" min="0" max="60" placeholder="Напр. 43.5" style="width: 100%; padding: 10px; font-size: 1rem; border: 2px solid #667eea; border-radius: 5px;">
+</div></p>
+<p><button onclick="calculateGrowth()" class="btn" style="width: 100%; padding: 15px; font-size: 1.1rem; background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; border: none; border-radius: 8px; cursor: pointer; font-weight: bold;">
+Изчисли
+</button>
+</div></p>
+  </div>
+  <div id="growth-results" style="display: none; margin-top: 30px;">
+    <div class="card">
+      <h2>📈 Резултати</h2>
+      <div id="results-content"></div>
+    </div>
+<p><div class="card" style="margin-top: 20px;">
+<h3>📊 Визуализация на растежа</h3>
+<canvas id="growth-chart" style="max-height: 400px;"></canvas>
+</div></p>
+<p><div class="card" style="margin-top: 20px; background: #f0f7ff; border-left: 4px solid #667eea;">
+<h3>ℹ️ Разбиране на перцентилите</h3>
+<p><strong>Какво означават перцентилите?</strong></p>
+<ul style="line-height: 1.8;">
+<li><strong>50-ти перцентил (медиана):</strong> Средна стойност - половината деца са по-големи, половината - по-малки</li>
+<li><strong>3-ти до 97-ми перцентил:</strong> Нормален диапазон за повечето деца</li>
+<li><strong>Под 3-ти перцентил:</strong> Може да изисква консултация с педиатър</li>
+<li><strong>Над 97-ми перцентил:</strong> Също може да изисква консултация</li>
+</ul>
+<p style="margin-top: 15px; padding: 10px; background: white; border-radius: 5px;">
+<strong>Важно:</strong> Перцентилите са само ориентир. Всяко дете расте по свой уникален темп.
+Ако имате притеснения, винаги се консултирайте с педиатър.
+</p>
+</div></p>
+  </div>
+</div>
+<style>
+.intro {
+  font-size: 1.1rem;
+  color: #555;
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  padding: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  margin-bottom: 20px;
+}
+
+.card h2 {
+  color: #667eea;
+  margin-top: 0;
+}
+
+.card h3 {
+  color: #764ba2;
+  margin-top: 0;
+}
+
+.percentile-badge {
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 20px;
+  font-weight: bold;
+  margin-left: 10px;
+}
+
+.percentile-low {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.percentile-normal {
+  background: #d4edda;
+  color: #155724;
+}
+
+.percentile-high {
+  background: #fff3cd;
+  color: #856404;
+}
+
+.stat-item {
+  padding: 15px;
+  margin: 10px 0;
+  background: #f8f9fa;
+  border-radius: 8px;
+  border-left: 4px solid #667eea;
+}
+
+@media (max-width: 768px) {
+  .card {
+    padding: 15px;
+  }
+}
+</style>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script>
+// WHO growth standards - simplified percentile data (3rd, 50th, 97th)
+const growthData = {
+  male: {
+    weight: {
+      0: {p3: 2.5, p50: 3.3, p97: 4.4},
+      1: {p3: 3.4, p50: 4.5, p97: 5.8},
+      2: {p3: 4.3, p50: 5.6, p97: 7.1},
+      3: {p3: 5.0, p50: 6.4, p97: 8.0},
+      6: {p3: 6.4, p50: 7.9, p97: 9.8},
+      9: {p3: 7.1, p50: 8.9, p97: 11.0},
+      12: {p3: 7.7, p50: 9.6, p97: 12.0},
+      18: {p3: 8.8, p50: 11.0, p97: 13.7},
+      24: {p3: 9.7, p50: 12.2, p97: 15.3}
+    },
+    height: {
+      0: {p3: 46.1, p50: 49.9, p97: 53.7},
+      1: {p3: 50.8, p50: 54.7, p97: 58.6},
+      2: {p3: 54.4, p50: 58.4, p97: 62.4},
+      3: {p3: 57.3, p50: 61.4, p97: 65.5},
+      6: {p3: 63.3, p50: 67.6, p97: 72.0},
+      9: {p3: 67.7, p50: 72.0, p97: 76.5},
+      12: {p3: 71.0, p50: 75.7, p97: 80.5},
+      18: {p3: 76.9, p50: 82.3, p97: 88.1},
+      24: {p3: 81.7, p50: 87.8, p97: 94.4}
+    }
+  },
+  female: {
+    weight: {
+      0: {p3: 2.4, p50: 3.2, p97: 4.2},
+      1: {p3: 3.2, p50: 4.2, p97: 5.5},
+      2: {p3: 3.9, p50: 5.1, p97: 6.6},
+      3: {p3: 4.5, p50: 5.8, p97: 7.5},
+      6: {p3: 5.7, p50: 7.3, p97: 9.3},
+      9: {p3: 6.4, p50: 8.2, p97: 10.5},
+      12: {p3: 7.0, p50: 9.0, p97: 11.5},
+      18: {p3: 8.1, p50: 10.2, p97: 13.2},
+      24: {p3: 9.0, p50: 11.5, p97: 14.8}
+    },
+    height: {
+      0: {p3: 45.4, p50: 49.1, p97: 52.9},
+      1: {p3: 49.8, p50: 53.7, p97: 57.6},
+      2: {p3: 53.0, p50: 57.1, p97: 61.1},
+      3: {p3: 55.6, p50: 59.8, p97: 64.0},
+      6: {p3: 61.2, p50: 65.7, p97: 70.3},
+      9: {p3: 65.3, p50: 70.1, p97: 75.0},
+      12: {p3: 68.9, p50: 74.0, p97: 79.2},
+      18: {p3: 75.0, p50: 80.7, p97: 86.7},
+      24: {p3: 80.0, p50: 86.4, p97: 93.4}
+    }
+  }
+};
+
+let growthChart = null;
+
+function getClosestAge(age) {
+  const ages = [0, 1, 2, 3, 6, 9, 12, 18, 24];
+  return ages.reduce((prev, curr) => 
+    Math.abs(curr - age) < Math.abs(prev - age) ? curr : prev
+  );
+}
+
+function calculatePercentile(value, p3, p50, p97) {
+  if (value < p3) return "под 3-ти";
+  if (value < p50) return "между 3-ти и 50-ти";
+  if (value < p97) return "между 50-ти и 97-ми";
+  return "над 97-ми";
+}
+
+function getPercentileClass(percentile) {
+  if (percentile.includes("под 3") || percentile.includes("над 97")) return "percentile-high";
+  return "percentile-normal";
+}
+
+function calculateGrowth() {
+  const gender = document.getElementById('child-gender').value;
+  const ageMonths = parseInt(document.getElementById('child-age-months').value);
+  const weight = parseFloat(document.getElementById('child-weight').value);
+  const height = parseFloat(document.getElementById('child-height').value);
+  const head = parseFloat(document.getElementById('child-head').value);
+
+  if (!ageMonths && ageMonths !== 0 || !weight || !height) {
+    alert('Моля, попълнете всички задължителни полета!');
+    return;
+  }
+
+  if (ageMonths > 24) {
+    alert('Калкулаторът поддържа данни до 24 месеца.');
+    return;
+  }
+
+  const closestAge = getClosestAge(ageMonths);
+  const data = growthData[gender];
+  
+  const weightData = data.weight[closestAge];
+  const heightData = data.height[closestAge];
+  
+  const weightPercentile = calculatePercentile(weight, weightData.p3, weightData.p50, weightData.p97);
+  const heightPercentile = calculatePercentile(height, heightData.p3, heightData.p50, heightData.p97);
+
+  let resultsHTML = `
+    <div class="stat-item">
+      <h4>👶 Тегло: ${weight} кг</h4>
+      <p>Перцентил: <span class="percentile-badge ${getPercentileClass(weightPercentile)}">${weightPercentile}</span></p>
+      <p style="color: #666; font-size: 0.9rem;">Референтни стойности за ${ageMonths} месеца: ${weightData.p3} кг (3-ти) - ${weightData.p50} кг (50-ти) - ${weightData.p97} кг (97-ми)</p>
+    </div>
+
+    <div class="stat-item">
+      <h4>📏 Ръст: ${height} см</h4>
+      <p>Перцентил: <span class="percentile-badge ${getPercentileClass(heightPercentile)}">${heightPercentile}</span></p>
+      <p style="color: #666; font-size: 0.9rem;">Референтни стойности за ${ageMonths} месеца: ${heightData.p3} см (3-ти) - ${heightData.p50} см (50-ти) - ${heightData.p97} см (97-ми)</p>
+    </div>
+  `;
+
+  if (head) {
+    resultsHTML += `
+      <div class="stat-item">
+        <h4>👤 Обиколка на главата: ${head} см</h4>
+        <p style="color: #666;">Нормален диапазон за тази възраст: приблизително 34-48 см</p>
+      </div>
+    `;
+  }
+
+  // BMI calculation
+  const heightM = height / 100;
+  const bmi = (weight / (heightM * heightM)).toFixed(1);
+  resultsHTML += `
+    <div class="stat-item">
+      <h4>📊 BMI: ${bmi}</h4>
+      <p style="color: #666;">Индекс на телесна маса (за референция)</p>
+    </div>
+  `;
+
+  document.getElementById('results-content').innerHTML = resultsHTML;
+  document.getElementById('growth-results').style.display = 'block';
+
+  // Scroll to results
+  document.getElementById('growth-results').scrollIntoView({ behavior: 'smooth' });
+
+  // Draw chart
+  drawGrowthChart(gender, ageMonths, weight, height);
+}
+
+function drawGrowthChart(gender, currentAge, currentWeight, currentHeight) {
+  const ctx = document.getElementById('growth-chart').getContext('2d');
+  
+  if (growthChart) {
+    growthChart.destroy();
+  }
+
+  const ages = [0, 1, 2, 3, 6, 9, 12, 18, 24];
+  const data = growthData[gender];
+  
+  const weightP3 = ages.map(age => data.weight[age].p3);
+  const weightP50 = ages.map(age => data.weight[age].p50);
+  const weightP97 = ages.map(age => data.weight[age].p97);
+
+  growthChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+      labels: ages,
+      datasets: [
+        {
+          label: '3-ти перцентил',
+          data: weightP3,
+          borderColor: '#ffc107',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 3
+        },
+        {
+          label: '50-ти перцентил',
+          data: weightP50,
+          borderColor: '#28a745',
+          backgroundColor: 'transparent',
+          borderWidth: 3,
+          pointRadius: 3
+        },
+        {
+          label: '97-ми перцентил',
+          data: weightP97,
+          borderColor: '#ffc107',
+          backgroundColor: 'transparent',
+          borderWidth: 2,
+          pointRadius: 3
+        },
+        {
+          label: 'Вашето дете',
+          data: ages.map(age => age === currentAge ? currentWeight : null),
+          borderColor: '#667eea',
+          backgroundColor: '#667eea',
+          pointRadius: 8,
+          pointStyle: 'star',
+          showLine: false
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: true,
+      plugins: {
+        title: {
+          display: true,
+          text: 'Тегло по възраст (WHO стандарти)',
+          font: { size: 16 }
+        },
+        legend: {
+          display: true,
+          position: 'bottom'
+        }
+      },
+      scales: {
+        x: {
+          title: {
+            display: true,
+            text: 'Възраст (месеци)'
+          }
+        },
+        y: {
+          title: {
+            display: true,
+            text: 'Тегло (кг)'
+          },
+          beginAtZero: true
+        }
+      }
+    }
+  });
+}
+</script>
+
+  </main>
+
+  <footer>
+  <div class="container">
+    <div class="grid-3">
+      <div>
+        <h3>За Майчинство BG</h3>
+        <p>Майчинство BG е ресурс за родители в България. Предоставяме надеждна информация за грижи за бебета и деца от раждането до юношеската възраст - здраве, хранене, развитие и много повече.</p>
+      </div>
+      <div>
+        <h3>Полезни връзки</h3>
+        <ul style="list-style:none;padding:0;">
+          <li><a href="/about/">За нас</a></li>
+          <li><a href="/privacy/">Поверителност</a></li>
+          <li><a href="/cookies/">Бисквитки</a></li>
+          <li><a href="/resources/">Ресурси</a></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Свържете се с нас</h3>
+        <p>Email: info@majchinstvo.bg<br>
+        Телефон: +359 888 123 456</p>
+        <p style="margin-top:1rem;">Намерете ни в социалните мрежи</p>
+      </div>
+    </div>
+    <p style="text-align:center;margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.2);">
+      © 2025 Майчинство BG. Всички права запазени.
+    </p>
+  </div>
+</footer>
+
+
+  <script>
+    // Site Search Functionality
+    const searchData = [
+      // Възрасти
+      { title: "Бременност", url: "/pregnancy/", desc: "Информация за бременност и очакване на бебе" },
+      { title: "Новородено (0-12м)", url: "/newborn/", desc: "Грижи за новородено бебе" },
+      { title: "Малки деца (1-3г)", url: "/toddler/", desc: "Развитие на малки деца" },
+      { title: "Предучилищна възраст (3-5г)", url: "/preschool/", desc: "Подготовка за училище" },
+      { title: "Училищна възраст (6-12г)", url: "/school-age/", desc: "Училищни години" },
+      { title: "Юношество (13-18г)", url: "/adolescence/", desc: "Тийнейджърска възраст" },
+      
+      // Здраве
+      { title: "Общо здраве", url: "/health/", desc: "Детско здраве и превенция" },
+      { title: "Спешен справочник", url: "/health/emergency-guide/", desc: "Кога да се обадите на лекар, спешни ситуации" },
+      { title: "Етапи на развитие", url: "/health/developmental-milestones/", desc: "Проследяване на развитието по месеци" },
+      { title: "Хранене и диети", url: "/nutrition/", desc: "Здравословно хранене за деца" },
+      { title: "Психично здраве", url: "/mental-health/", desc: "Емоционално здраве и подкрепа" },
+      { title: "Самогрижа за майки", url: "/self-care/", desc: "Грижа за себе си като родител" },
+      
+      // Инструменти
+      { title: "Калкулатор за раждане", url: "/gadgets/due-date/", desc: "Изчислете датата на раждане" },
+      { title: "BMI калкулатор", url: "/gadgets/bmi/", desc: "Индекс на телесна маса" },
+      { title: "Проследяване на растежа", url: "/gadgets/growth-tracker/", desc: "WHO перцентили за тегло и ръст" },
+      { title: "График на ваксинации", url: "/gadgets/vaccination-schedule/", desc: "Национален ваксинационен календар" },
+      { title: "Таймер на контракции", url: "/pregnancy/contraction-timer/", desc: "Проследяване на контракции при раждане" },
+      { title: "Чеклисти", url: "/resources/checklists/", desc: "Списъци за болница, бебешки принадлежности" },
+      { title: "Препоръки за продукти", url: "/resources/product-recommendations/", desc: "Какво да купите за бебето" },
+      
+      // Забавление
+      { title: "Занимания по възрасти", url: "/fun/activities/", desc: "Образователни дейности за деца" },
+      { title: "Приказки и песнички", url: "/fun/stories/", desc: "Български приказки и детски песни" },
+      { title: "Креативни дейности", url: "/fun/creativity/", desc: "Рисуване, моделиране, занаяти" },
+      { title: "Празници и традиции", url: "/fun/holidays/", desc: "Български празници и обичаи" },
+      { title: "Интерактивни игри", url: "/fun/games/", desc: "Онлайн игри за деца - паметна игра, оцветяване" },
+      { title: "Активности на открито", url: "/fun/outdoor/", desc: "Игри и занимания навън" },
+      
+      // Други
+      { title: "FAQ - Често задавани въпроси", url: "/faq/", desc: "Отговори на чести въпроси за майчинство" },
+      { title: "Образование", url: "/education/", desc: "Детска градина и училище в България" },
+      { title: "Правни въпроси", url: "/legal/", desc: "Родителски права и задължения" },
+      { title: "Семейни отношения", url: "/relationships/", desc: "Партньорство и семейна динамика" },
+      { title: "За нас", url: "/about/", desc: "За сайта Майчинство BG" }
+    ];
+
+    const searchInput = document.getElementById('site-search');
+    const searchResults = document.getElementById('search-results');
+
+    if (searchInput) {
+      searchInput.addEventListener('input', function(e) {
+        const query = e.target.value.toLowerCase().trim();
+        
+        if (query.length < 2) {
+          searchResults.classList.remove('active');
+          searchResults.innerHTML = '';
+          return;
+        }
+
+        const results = searchData.filter(item => 
+          item.title.toLowerCase().includes(query) || 
+          item.desc.toLowerCase().includes(query) ||
+          item.url.toLowerCase().includes(query)
+        ).slice(0, 8);
+
+        if (results.length === 0) {
+          searchResults.innerHTML = '<div class="search-no-results">Няма намерени резултати за "' + query + '"</div>';
+          searchResults.classList.add('active');
+          return;
+        }
+
+        searchResults.innerHTML = results.map(item => `
+          <div class="search-result-item" onclick="window.location.href='${item.url}'">
+            <div class="search-result-title">${item.title}</div>
+            <div class="search-result-desc">${item.desc}</div>
+          </div>
+        `).join('');
+
+        searchResults.classList.add('active');
+      });
+
+      // Close search results when clicking outside
+      document.addEventListener('click', function(e) {
+        if (!e.target.closest('.header-search')) {
+          searchResults.classList.remove('active');
+        }
+      });
+
+      // Navigate with keyboard
+      searchInput.addEventListener('keydown', function(e) {
+        if (e.key === 'Escape') {
+          searchResults.classList.remove('active');
+          searchInput.blur();
+        }
+      });
+    }
+  </script>
+
+</body>
+</html>
