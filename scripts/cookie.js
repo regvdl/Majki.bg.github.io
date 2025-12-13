@@ -1,16 +1,10 @@
-document.addEventListener('DOMContentLoaded', function(){
-  try{
-    var banner = document.getElementById('cookie-banner');
-    if(!banner) return;
-    var accepted = localStorage.getItem('cookies_accepted');
-    if(!accepted){
-      banner.setAttribute('aria-hidden','false');
-      banner.style.display = 'block';
-    }
-    document.getElementById('cookie-accept').addEventListener('click', function(){
-      localStorage.setItem('cookies_accepted','1');
-      banner.setAttribute('aria-hidden','true');
-      banner.style.display = 'none';
-    });
-  }catch(e){console.warn(e)}
+// Тънък слой за съвместимост: ако този файл бъде включен отделно,
+// той просто активира глобалния CookieConsent, дефиниран в layout.njk.
+document.addEventListener('DOMContentLoaded', function() {
+  if (!window.CookieConsent) return;
+
+  // Ако няма запазени предпочитания, покажи банера.
+  if (!localStorage.getItem('cookie-consent')) {
+    window.CookieConsent.showPreferences();
+  }
 });

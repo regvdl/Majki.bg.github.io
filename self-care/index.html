@@ -25,6 +25,7 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="https://motherhood.bg/self-care/">
   
+  
   <title>Самогрижа за родители</title>
   
   <!-- Schema.org structured data -->
@@ -66,51 +67,61 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      line-height: 1.6;
-      color: var(--text-color);
-      background: var(--bg-color);
-    }
+      <script>
+        // AdSense loader with NPA fallback: always load, switch to non-personalized ads when Ads consent is not granted.
+        (function() {
+          const ADS_CLIENT = ;
+          const ADS_ENABLED = ;
+          const SLOT = ;
+          window.__ADSENSE_CLIENT__ = ADS_CLIENT;
+          window.__ADSENSE_ENABLED__ = ADS_ENABLED;
+          window.__ADSENSE_SLOT__ = SLOT;
 
-    /* Header Styles */
-    .site-header {
-      background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
-      color: white;
-      box-shadow: 0 2px 15px rgba(0,0,0,0.1);
-      position: sticky;
-      top: 0;
-      z-index: 1000;
-    }
+          function setNPAFlag(enabled) {
+            // request non-personalized ads per Google policy
+            window.adsbygoogle = window.adsbygoogle || [];
+            if (enabled) {
+              window.adsbygoogle.requestNonPersonalizedAds = 1;
+            } else {
+              try { delete window.adsbygoogle.requestNonPersonalizedAds; } catch (e) { window.adsbygoogle.requestNonPersonalizedAds = undefined; }
+            }
+          }
 
-    .site-header .container {
-      max-width: 1200px;
-      margin: 0 auto;
-      padding: 0 20px;
-    }
+          function loadAdSenseScript() {
+            if (!ADS_ENABLED || !ADS_CLIENT) return;
+            if (document.querySelector('script[data-adsense]')) return;
+            const s = document.createElement('script');
+            s.async = true;
+            s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS_CLIENT}`;
+            s.setAttribute('data-adsense','true');
+            s.crossOrigin = 'anonymous';
+            document.head.appendChild(s);
+            s.addEventListener('load', function() {
+              try {
+                document.querySelectorAll('ins.adsbygoogle').forEach(function(el){
+                  (window.adsbygoogle = window.adsbygoogle || []).push({});
+                });
+                insertMidArticleAd();
+              } catch(e) {}
+            });
+          }
 
-    .header-content {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      min-height: 70px;
-    }
+          function applyConsentNPA(prefs) {
+            const adsConsent = !!(prefs && prefs.ads === true);
+            setNPAFlag(!adsConsent);
+          }
 
-    .logo a {
-      color: white;
-      text-decoration: none;
-      font-size: 1.5rem;
-      font-weight: 700;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-      transition: transform 0.3s;
-    }
-
-    .logo a:hover {
-      transform: scale(1.05);
-    }
-
-    .logo-image {
-      height: 50px;
+          // Always load AdSense; toggle NPA based on consent
+          document.addEventListener('cookie-consent-ready', function(ev){
+            applyConsentNPA(ev.detail);
+            loadAdSenseScript();
+          });
+          document.addEventListener('cookie-consent-change', function(ev){
+            applyConsentNPA(ev.detail);
+            // AdSense script may already be loaded; just re-init future slots
+          });
+        })();
+      </script>
       width: auto;
       display: block;
       border-radius: 8px;
@@ -714,8 +725,153 @@
 
       .logo-icon {
         font-size: 1.5rem;
+    .content-ad {
+      margin: 24px 0;
+      display: block;
+    }
+
       }
     }
+
+    /* Inline ad wrapper (unobtrusive spacing) */
+    .ad-inline {
+      margin: 20px 0;
+      display: block;
+    }
+
+    /* Content-level ad spacing */
+    .content-ad {
+      margin: 24px 0;
+      display: block;
+    }
+
+    /* Cookie banner */
+    .cookie-banner {
+      position: fixed;
+      left: 20px;
+      right: 20px;
+      bottom: 20px;
+      z-index: 1100;
+      background: white;
+      border: 1px solid var(--border-color);
+      border-radius: 14px;
+      box-shadow: 0 12px 40px rgba(0,0,0,0.12);
+      padding: 18px;
+      display: none;
+    }
+
+    .cookie-inner {
+      display: flex;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+    }
+
+    .cookie-copy h3 {
+      margin: 0 0 6px 0;
+      color: var(--primary-color);
+      font-size: 1.05rem;
+    }
+
+    .cookie-copy p {
+      margin: 0;
+      color: #4a5568;
+    }
+
+    .cookie-actions {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: flex-end;
+    }
+
+    .cookie-preferences {
+      margin-top: 12px;
+      border-top: 1px solid var(--border-color);
+      padding-top: 12px;
+      background: #f8f9ff;
+      border-radius: 10px;
+    }
+
+    .cookie-preferences[hidden] {
+      display: none;
+    }
+
+    .cookie-note {
+      margin: 0 0 10px 0;
+      color: #4a5568;
+      font-size: 0.95rem;
+    }
+
+    .cookie-toggle {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      margin: 8px 0;
+    }
+
+    .cookie-toggle input {
+      margin-top: 4px;
+    }
+
+    .cookie-toggle span {
+      color: #2d3748;
+      line-height: 1.5;
+    }
+
+    .cookie-pref-actions {
+      display: flex;
+      gap: 10px;
+      justify-content: flex-end;
+      margin-top: 10px;
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--primary-color);
+      border: 2px solid var(--primary-color);
+    }
+
+    .btn-secondary:hover {
+      background: #eef2ff;
+      color: var(--secondary-color);
+    }
+
+    .btn-ghost {
+      background: #f6f8ff;
+      color: var(--primary-color);
+      border: 1px solid #e5e7f5;
+    }
+
+    .btn-ghost:hover {
+      background: #eef2ff;
+      color: var(--secondary-color);
+    }
+
+    @media (max-width: 768px) {
+      .cookie-banner {
+        left: 10px;
+        right: 10px;
+        bottom: 10px;
+      }
+
+      .cookie-inner {
+        flex-direction: column;
+        align-items: flex-start;
+      }
+
+      .cookie-actions {
+        width: 100%;
+        justify-content: flex-start;
+      }
+    }
+    /* Sticky footer ad styles (desktop only) */
+    .sticky-ad{position:fixed;left:0;right:0;bottom:0;z-index:9999;background:#fff;border-top:1px solid #eee;box-shadow:0 -4px 16px rgba(0,0,0,.08);padding:8px 12px;display:flex;align-items:center;justify-content:center}
+    .sticky-ad .sticky-close{position:absolute;right:8px;top:8px;border:none;background:transparent;font-size:18px;cursor:pointer;color:#666}
+    @media (max-width: 991px){.sticky-ad{display:none !important}}
+    /* Reserve space to reduce CLS */
+    .content-ad{min-height:280px}
   </style>
   <script>
     // Mobile menu toggle
@@ -743,6 +899,274 @@
       }
     });
   </script>
+  <script>
+    // Expose AdSense client configured in data
+    window.__ADSENSE_CLIENT__ = "";
+    window.__ADSENSE_ENABLED__ = false;
+    window.__ADSENSE_SLOT__ = "";
+  </script>
+  <script>
+    (function() {
+      const STORAGE_KEY = 'cookie-consent';
+      const defaultPrefs = { necessary: true, functional: false, analytics: false, ads: false };
+
+      function loadPrefs() {
+        try {
+          const stored = localStorage.getItem(STORAGE_KEY);
+          if (!stored) return { ...defaultPrefs };
+          const parsed = JSON.parse(stored);
+          return { ...defaultPrefs, ...parsed, necessary: true };
+        } catch (e) {
+          console.warn('Неуспешно зареждане на предпочитанията за бисквитки', e);
+          return { ...defaultPrefs };
+        }
+      }
+
+      function applyPrefs(prefs) {
+        document.documentElement.dataset.consentAnalytics = prefs.analytics ? 'granted' : 'denied';
+        document.documentElement.dataset.consentFunctional = prefs.functional ? 'granted' : 'denied';
+        document.documentElement.dataset.consentAds = prefs.ads ? 'granted' : 'denied';
+        // Пример: блокира Google Analytics, ако няма съгласие
+        window['ga-disable-GA_MEASUREMENT_ID'] = !prefs.analytics;
+      }
+
+      function persistPrefs(prefs) {
+        localStorage.setItem(STORAGE_KEY, JSON.stringify(prefs));
+        applyPrefs(prefs);
+        document.dispatchEvent(new CustomEvent('cookie-consent-change', { detail: prefs }));
+      }
+
+      function syncToggles(banner, prefs) {
+        const analyticsToggle = banner.querySelector('#consent-analytics');
+        const functionalToggle = banner.querySelector('#consent-functional');
+        if (analyticsToggle) analyticsToggle.checked = !!prefs.analytics;
+        if (functionalToggle) functionalToggle.checked = !!prefs.functional;
+      }
+
+      function showBannerElement(banner) {
+        banner.style.display = 'block';
+        banner.setAttribute('aria-hidden', 'false');
+      }
+
+      function hideBannerElement(banner) {
+        banner.style.display = 'none';
+        banner.setAttribute('aria-hidden', 'true');
+        const panel = banner.querySelector('[data-pref-panel]');
+        if (panel) panel.hidden = true;
+      }
+
+      function openPrefsPanel(banner) {
+        const panel = banner.querySelector('[data-pref-panel]');
+        if (panel) panel.hidden = false;
+      }
+
+      function closePrefsPanel(banner) {
+        const panel = banner.querySelector('[data-pref-panel]');
+        if (panel) panel.hidden = true;
+      }
+
+      function saveFromToggles(banner) {
+        const prefs = {
+          necessary: true,
+          analytics: !!(banner.querySelector('#consent-analytics') || {}).checked,
+          functional: !!(banner.querySelector('#consent-functional') || {}).checked,
+          ads: !!(banner.querySelector('#consent-ads') || {}).checked
+        };
+        persistPrefs(prefs);
+        hideBannerElement(banner);
+      }
+
+      function bindBanner(banner) {
+        const stored = loadPrefs();
+        applyPrefs(stored);
+        syncToggles(banner, stored);
+
+        const accept = banner.querySelector('[data-consent="accept"]');
+        const reject = banner.querySelector('[data-consent="reject"]');
+        const settings = banner.querySelector('[data-consent="settings"]');
+        const save = banner.querySelector('[data-consent="save"]');
+        const cancel = banner.querySelector('[data-consent="cancel"]');
+
+        accept?.addEventListener('click', function() {
+          const prefs = { necessary: true, analytics: true, functional: true, ads: true };
+          persistPrefs(prefs);
+          hideBannerElement(banner);
+        });
+
+        reject?.addEventListener('click', function() {
+          const prefs = { necessary: true, analytics: false, functional: false, ads: false };
+          persistPrefs(prefs);
+          hideBannerElement(banner);
+        });
+
+        settings?.addEventListener('click', function() {
+          syncToggles(banner, loadPrefs());
+          showBannerElement(banner);
+          openPrefsPanel(banner);
+        });
+
+        save?.addEventListener('click', function() {
+          saveFromToggles(banner);
+        });
+
+        cancel?.addEventListener('click', function() {
+          closePrefsPanel(banner);
+        });
+
+        if (!localStorage.getItem(STORAGE_KEY)) {
+          showBannerElement(banner);
+        }
+      }
+
+      // AdSense loader
+      let adsenseLoaded = false;
+      function loadAdsenseLibrary() {
+        if (adsenseLoaded) return;
+        if (!window.__ADSENSE_ENABLED__ || !window.__ADSENSE_CLIENT__) return;
+        const s = document.createElement('script');
+        s.async = true;
+        s.src = 'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=' + window.__ADSENSE_CLIENT__;
+        s.crossOrigin = 'anonymous';
+        s.onload = function(){
+          adsenseLoaded = true;
+          try {
+            document.querySelectorAll('ins.adsbygoogle').forEach(function(el){
+              (adsbygoogle = window.adsbygoogle || []).push({});
+            });
+          } catch(e){ console.warn('AdSense init error', e); }
+          // Insert mid-article ad after library loads
+          insertMidArticleAd();
+        };
+        document.head.appendChild(s);
+      }
+
+      function maybeInitAds(prefs) {
+        if (prefs && prefs.ads) {
+          loadAdsenseLibrary();
+        }
+      }
+
+      document.addEventListener('cookie-consent-change', function(e){
+        maybeInitAds(e.detail);
+      });
+
+      document.addEventListener('DOMContentLoaded', function() {
+        const banner = document.getElementById('cookie-banner');
+        if (banner) {
+          bindBanner(banner);
+        }
+        // Initialize ads if consent already stored
+        maybeInitAds(loadPrefs());
+        // Attempt mid-article insertion once DOM is ready
+        insertMidArticleAd();
+      });
+
+      // Dynamically insert one inline ad on long pages after the second heading
+      function insertMidArticleAd() {
+        try {
+          if (!window.__ADSENSE_ENABLED__) return;
+          const prefs = loadPrefs();
+          if (!prefs.ads) return;
+          const url = (window.location && window.location.pathname) || '';
+          const excluded = ['/'];
+          if (excluded.includes(url)) return;
+
+          const main = document.querySelector('main');
+          if (!main) return;
+          const content = main.querySelector('.content') || main;
+          const textLen = (content.textContent || '').trim().length;
+          if (textLen < 1200) return;
+
+          // Avoid duplicate
+          if (content.querySelector('.ad-inline ins.adsbygoogle')) return;
+
+          const headings = content.querySelectorAll('h2, h3');
+          let anchor = null;
+          if (headings.length >= 2) {
+            anchor = headings[1];
+          } else {
+            const paragraphs = content.querySelectorAll('p');
+            if (paragraphs.length >= 5) anchor = paragraphs[4];
+          }
+          if (!anchor) return;
+
+          const wrapper = document.createElement('div');
+          wrapper.className = 'ad-inline';
+          const ins = document.createElement('ins');
+          ins.className = 'adsbygoogle';
+          ins.style.display = 'block';
+          ins.setAttribute('data-ad-client', window.__ADSENSE_CLIENT__);
+          if (window.__ADSENSE_SLOT__) {
+            ins.setAttribute('data-ad-slot', window.__ADSENSE_SLOT__);
+          }
+          ins.setAttribute('data-ad-format', 'auto');
+          ins.setAttribute('data-full-width-responsive', 'true');
+          wrapper.appendChild(ins);
+          anchor.insertAdjacentElement('afterend', wrapper);
+
+          try { (adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+        } catch (e) {
+          console.warn('Mid-article ad insertion failed', e);
+        }
+      }
+
+      window.CookieConsent = {
+        load: loadPrefs,
+        save(prefs) {
+          const merged = { ...defaultPrefs, ...prefs, necessary: true };
+          persistPrefs(merged);
+          return merged;
+        },
+        apply: applyPrefs,
+        showPreferences() {
+          const banner = document.getElementById('cookie-banner');
+          if (!banner) return;
+          syncToggles(banner, loadPrefs());
+          showBannerElement(banner);
+          openPrefsPanel(banner);
+        },
+        hideBanner() {
+          const banner = document.getElementById('cookie-banner');
+          if (banner) hideBannerElement(banner);
+        }
+      };
+
+      document.dispatchEvent(new Event('cookie-consent-ready'));
+    })();
+  </script>
+    <script>
+      // Sticky footer ad: show once per session on desktop, closeable
+      (function(){
+        function isDesktop(){ return window.matchMedia('(min-width: 992px)').matches; }
+        function isHome(){ return (window.location && window.location.pathname) === '/'; }
+        function initSticky(){
+          var el = document.getElementById('sticky-ad');
+          if (!el) return;
+          try { (window.adsbygoogle = window.adsbygoogle || []).push({}); } catch(e){}
+        }
+        function showSticky(){
+          var el = document.getElementById('sticky-ad');
+          if (!el) return;
+          var CAP_KEY = 'stickyAdShown';
+          if (sessionStorage.getItem(CAP_KEY)) return;
+          if (!isDesktop() || isHome()) return;
+          el.hidden = false;
+          el.setAttribute('aria-hidden','false');
+          sessionStorage.setItem(CAP_KEY,'1');
+          initSticky();
+        }
+        document.addEventListener('click', function(ev){
+          var btn = ev.target && ev.target.closest && ev.target.closest('.sticky-close');
+          if (btn){ var el = document.getElementById('sticky-ad'); if (el){ el.hidden = true; el.setAttribute('aria-hidden','true'); } }
+        });
+        document.addEventListener('cookie-consent-change', function(e){
+          // Show regardless of personalized consent; NPA handled by loader
+          showSticky();
+        });
+        // In case consent already stored
+        document.addEventListener('DOMContentLoaded', function(){ showSticky(); });
+      })();
+    </script>
 </head>
 <body>
   
@@ -845,6 +1269,50 @@
     </div>
   </div>
 </header>
+
+
+  <div id="cookie-banner" class="cookie-banner" aria-hidden="true">
+  <div class="cookie-inner">
+    <div class="cookie-copy">
+      <h3>Бисквитки за по-добро изживяване</h3>
+      <p>Използваме бисквитки, за да работи сайтът надеждно, да помним предпочитанията ви и да събираме анонимна статистика. Научете повече в <a href="/cookies/">политиката за бисквитки</a>.</p>
+    </div>
+    <div class="cookie-actions">
+      <button class="btn btn-ghost" type="button" data-consent="reject">Само необходимите</button>
+      <button class="btn btn-secondary" type="button" data-consent="settings">Настройки</button>
+      <button class="btn" type="button" data-consent="accept">Приемам всички</button>
+    </div>
+  </div>
+
+  <div class="cookie-preferences" data-pref-panel hidden>
+    <p class="cookie-note">Изберете какво да разрешите. Можете да промените избора си по всяко време от тази страница.</p>
+
+    <label class="cookie-toggle">
+      <input type="checkbox" checked disabled>
+      <span><strong>Задължителни</strong> — нужни за работа на сайта (сигурност, базова функционалност).</span>
+    </label>
+
+    <label class="cookie-toggle">
+      <input type="checkbox" id="consent-functional">
+      <span><strong>Функционални</strong> — запомнят предпочитания като език и настройки.</span>
+    </label>
+
+    <label class="cookie-toggle">
+      <input type="checkbox" id="consent-analytics">
+      <span><strong>Аналитични</strong> — анонимна статистика за подобряване на съдържанието.</span>
+    </label>
+
+    <label class="cookie-toggle">
+      <input type="checkbox" id="consent-ads">
+      <span><strong>Рекламни</strong> — при съгласие: персонализирани реклами; при отказ: може да се показват неперсонализирани (без таргетиране) реклами чрез AdSense.</span>
+    </label>
+
+    <div class="cookie-pref-actions">
+      <button class="btn btn-secondary" type="button" data-consent="cancel">Отказ</button>
+      <button class="btn" type="button" data-consent="save">Запази избора</button>
+    </div>
+  </div>
+</div>
 
 
   <main>
@@ -1143,6 +1611,9 @@
   </script>
 </div>
 
+
+    
+    
   </main>
 
   <footer>
@@ -1174,6 +1645,12 @@
   </div>
 </footer>
 
+
+  <!-- Desktop sticky footer ad (consent-aware, closeable) -->
+  <div id="sticky-ad" class="sticky-ad" aria-hidden="true" hidden>
+    <button type="button" class="sticky-close" aria-label="Затвори">×</button>
+    <ins class="adsbygoogle" style="display:block" data-ad-client=""  data-ad-format="auto" data-full-width-responsive="false"></ins>
+  </div>
 
   <script>
     // Site Search Functionality
