@@ -67,64 +67,8 @@
 
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-      <script>
-        // AdSense loader with NPA fallback: always load, switch to non-personalized ads when Ads consent is not granted.
-        (function() {
-          const ADS_CLIENT = ;
-          const ADS_ENABLED = ;
-          const SLOT = ;
-          window.__ADSENSE_CLIENT__ = ADS_CLIENT;
-          window.__ADSENSE_ENABLED__ = ADS_ENABLED;
-          window.__ADSENSE_SLOT__ = SLOT;
-
-          function setNPAFlag(enabled) {
-            // request non-personalized ads per Google policy
-            window.adsbygoogle = window.adsbygoogle || [];
-            if (enabled) {
-              window.adsbygoogle.requestNonPersonalizedAds = 1;
-            } else {
-              try { delete window.adsbygoogle.requestNonPersonalizedAds; } catch (e) { window.adsbygoogle.requestNonPersonalizedAds = undefined; }
-            }
-          }
-
-          function loadAdSenseScript() {
-            if (!ADS_ENABLED || !ADS_CLIENT) return;
-            if (document.querySelector('script[data-adsense]')) return;
-            const s = document.createElement('script');
-            s.async = true;
-            s.src = `https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=${ADS_CLIENT}`;
-            s.setAttribute('data-adsense','true');
-            s.crossOrigin = 'anonymous';
-            document.head.appendChild(s);
-            s.addEventListener('load', function() {
-              try {
-                document.querySelectorAll('ins.adsbygoogle').forEach(function(el){
-                  (window.adsbygoogle = window.adsbygoogle || []).push({});
-                });
-                insertMidArticleAd();
-              } catch(e) {}
-            });
-          }
-
-          function applyConsentNPA(prefs) {
-            const adsConsent = !!(prefs && prefs.ads === true);
-            setNPAFlag(!adsConsent);
-          }
-
-          // Always load AdSense; toggle NPA based on consent
-          document.addEventListener('cookie-consent-ready', function(ev){
-            applyConsentNPA(ev.detail);
-            loadAdSenseScript();
-          });
-          document.addEventListener('cookie-consent-change', function(ev){
-            applyConsentNPA(ev.detail);
-            // AdSense script may already be loaded; just re-init future slots
-          });
-        })();
-      </script>
-      width: auto;
-      display: block;
-      border-radius: 8px;
+      color: var(--text-color);
+      background: var(--bg-color);
     }
 
     .logo-icon {
@@ -163,6 +107,28 @@
     }
 
     /* Navigation */
+    .header-content {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .site-header {
+      background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+      color: #fff;
+      padding: 14px 0;
+      box-shadow: 0 4px 16px rgba(0,0,0,0.08);
+    }
+    .site-header .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+    }
+    .logo-image { height: 40px; width: auto; display: block; }
     .main-nav {
       flex: 1;
       display: flex;
@@ -725,11 +691,6 @@
 
       .logo-icon {
         font-size: 1.5rem;
-    .content-ad {
-      margin: 24px 0;
-      display: block;
-    }
-
       }
     }
 
