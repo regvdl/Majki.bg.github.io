@@ -969,24 +969,27 @@
     @media (max-width: 768px) {
       .mobile-menu-toggle {
         display: flex;
+        order: 3;
+        margin-left: 5px;
       }
 
       .header-search {
-        width: 100%;
-        margin: 10px 0;
-        order: 3;
+        width: auto;
+        flex: 1;
+        min-width: 0;
+        margin: 0 10px;
+        order: 2;
       }
       
       .header-content {
-        flex-wrap: wrap;
+        flex-wrap: nowrap;
+        justify-content: space-between;
+        gap: 5px;
       }
       
       .logo {
         order: 1;
-      }
-      
-      .mobile-menu-toggle {
-        order: 2;
+        flex-shrink: 0;
       }
       
       .main-nav {
