@@ -205,11 +205,6 @@ em {
   gap: var(--spacing-md);
 }
 
-.logo::before {
-  content: '👶';
-  font-size: var(--font-size-3xl);
-}
-
 .logo a {
   color: var(--dark);
 }

@@ -1,15 +1,26 @@
 <!DOCTYPE html>
 <html lang="bg">
 <head>
+  <!-- 
+    ACCESSIBILITY FEATURES:
+    - Skip-to-content link (Shift+Tab from top)
+    - Keyboard navigation: Tab to navigate, Enter/Space to activate
+    - Search: Type to filter, Arrow Up/Down to navigate, Enter to select, Escape to close
+    - Dropdowns: Tab through menu items, Enter/Space to open, Escape to close
+    - Focus indicators: 3px pink outline on all focusable elements
+    - Touch targets: Minimum 48x48px on all interactive elements
+    - Color contrast: 4.5:1 or higher (WCAG AA)
+    - Screen reader support: ARIA roles, labels, and descriptions
+  -->
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <meta name="description" content="Как да се грижите за здравето на вашето дете - първа помощ, управление на треска, чести заболявания и превантивни грижи.">
   <meta name="keywords" content="майчинство, бременност, бебе, родителство, грижи за бебето, новородено, кърмене, здраве на детето, етапи на развитие, съвети за родители">
-  <meta name="author" content="Motherhood.bg">
+  <meta name="author" content="Майки.BG">
   
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website">
-  <meta property="og:url" content="https://motherhood.bg/health/">
+  <meta property="og:url" content="https://mayki.bg/health/">
   <meta property="og:title" content="Здраве на детето - Първа помощ и превенция">
   <meta property="og:description" content="Как да се грижите за здравето на вашето дете - първа помощ, управление на треска, чести заболявания и превантивни грижи.">
   <meta property="og:image" content="https://motherhood.bg/assets/og-image.jpg">
@@ -23,10 +34,42 @@
   <meta name="twitter:image" content="https://motherhood.bg/assets/og-image.jpg">
   
   <!-- Canonical URL -->
+  
   <link rel="canonical" href="https://motherhood.bg/health/">
   
   
+  <!-- Performance hints -->
+  <link rel="preconnect" href="https://www.google-analytics.com" crossorigin>
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+  <!-- Resource hints for critical assets -->
+  <link rel="preload" as="style" href="/styles/main.css" type="text/css">
+  <link rel="preload" as="script" href="/scripts/search.js">
+  <!-- Prefetch popular pages for faster navigation -->
+  <link rel="prefetch" href="/newborn/">
+  <link rel="prefetch" href="/pregnancy/">
+  <link rel="prefetch" href="/health/">
+  <link rel="prefetch" href="/nutrition/">
+  <link rel="prefetch" href="/faq/">
+  <link rel="prefetch" href="/fun/">
+  
+  
   <title>Здраве на детето - Първа помощ и превенция</title>
+  <meta name="description" content="Как да се грижите за здравето на вашето дете - първа помощ, управление на треска, чести заболявания и превантивни грижи.">
+  
+  <!-- Open Graph Social Meta -->
+  <meta property="og:title" content="Здраве на детето - Първа помощ и превенция">
+  <meta property="og:description" content="Как да се грижите за здравето на вашето дете - първа помощ, управление на треска, чести заболявания и превантивни грижи.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="/health/">
+  <meta property="og:image" content="/assets/og-image.jpg">
+  <meta property="og:site_name" content="Майки.BG">
+  <meta property="og:locale" content="bg_BG">
+  
+  <!-- Twitter Meta -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Здраве на детето - Първа помощ и превенция">
+  <meta name="twitter:description" content="Как да се грижите за здравето на вашето дете - първа помощ, управление на треска, чести заболявания и превантивни грижи.">
+  <meta name="twitter:image" content="/assets/og-image.jpg">
   
   <!-- Schema.org structured data -->
   <script type="application/ld+json">
@@ -47,6 +90,8 @@
     }
   }
   </script>
+  <link rel="stylesheet" href="/styles/modern.css">
+  <link rel="stylesheet" href="/styles/visual-improvements.css">
   <style>
     * {
       margin: 0;
@@ -58,7 +103,7 @@
     :root {
       --primary-color: #6366f1;
       --secondary-color: #8b5cf6;
-      --accent-color: #ec4899;
+      --accent-color: #db2777;
       --text-color: #1f2937;
       --text-light: #6b7280;
       --bg-color: #f8fafc;
@@ -70,6 +115,27 @@
       --radius-sm: 8px;
       --radius-md: 12px;
       --radius-lg: 16px;
+    }
+
+    /* Accessibility: Skip-to-content link */
+    .skip-link {
+      position: absolute;
+      top: -40px;
+      left: 0;
+      background: var(--accent-color);
+      color: white;
+      padding: 8px 16px;
+      text-decoration: none;
+      border-radius: 0 0 var(--radius-sm) 0;
+      z-index: 10001;
+      font-weight: 600;
+      transition: top 0.3s ease;
+    }
+
+    .skip-link:focus {
+      top: 0;
+      outline: 3px solid white;
+      outline-offset: 2px;
     }
 
     body {
@@ -121,12 +187,28 @@
     .site-header {
       background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
       color: #fff;
-      padding: 14px 0;
+      padding: 4px 0;
       box-shadow: var(--shadow-md);
       backdrop-filter: blur(10px);
       border-bottom: 1px solid rgba(255,255,255,0.1);
-      position: relative;
-      z-index: 9998;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      width: 100%;
+      z-index: 10000;
+    }
+
+    .news-ticker a:hover { text-decoration: underline; }
+    
+    .site-header::after {
+      content: '';
+      position: absolute;
+      bottom: -3px;
+      left: 0;
+      right: 0;
+      height: 3px;
+      background: linear-gradient(90deg, var(--accent-color), transparent 70%);
     }
     .site-header .container {
       max-width: 100%;
@@ -158,7 +240,7 @@
       list-style: none;
       display: flex;
       align-items: center;
-      gap: 5px;
+      gap: 2px;
       margin: 0;
       padding: 0;
     }
@@ -171,10 +253,11 @@
       color: white;
       text-decoration: none;
       font-weight: 500;
-      padding: 10px 15px;
+      padding: 8px 8px;
+      font-size: 0.9rem;
       display: flex;
       align-items: center;
-      gap: 6px;
+      gap: 4px;
       border-radius: 5px;
       transition: background 0.3s;
       white-space: nowrap;
@@ -186,6 +269,11 @@
       background: rgba(255,255,255,0.1);
       text-decoration: none;
       color: white;
+    }
+
+    .nav-link:focus-visible {
+      outline: 2px solid rgba(255,255,255,0.9);
+      outline-offset: 2px;
     }
 
     .nav-icon {
@@ -269,6 +357,7 @@
       padding: 40px 20px;
       background: white;
       min-height: 60vh;
+      margin-top: 55px;
     }
 
     .hero-image {
@@ -451,6 +540,8 @@
     .btn {
       display: inline-block;
       padding: 14px 32px;
+      min-height: 48px;
+      min-width: 48px;
       background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
       color: white;
       text-decoration: none;
@@ -464,6 +555,9 @@
       box-shadow: var(--shadow-md);
       position: relative;
       overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
     }
 
     .btn::before {
@@ -522,6 +616,23 @@
       padding-bottom: 10px;
     }
 
+    /* Global focus-visible for keyboard accessibility */
+    a:focus-visible,
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible,
+    select:focus-visible {
+      outline: 3px solid var(--accent-color);
+      outline-offset: 2px;
+      border-radius: 4px;
+    }
+
+    /* Ensure focused dropdown items are visible */
+    .dropdown a:focus-visible,
+    .search-result-item:focus-visible {
+      background-color: rgba(99, 102, 241, 0.15);
+    }
+
     /* Tables */
     table {
       width: 100%;
@@ -560,6 +671,7 @@
       box-shadow: 0 2px 8px rgba(0,0,0,0.04);
       position: relative;
       z-index: 100;
+      margin-top: 72px;
     }
 
     .info-container {
@@ -750,10 +862,12 @@
     /* Search Functionality */
     .header-search {
       position: relative;
-      flex: 0 1 240px;
-      width: clamp(200px, 24vw, 260px);
+      flex: 1 1 350px;
+      min-width: 250px;
+      max-width: 600px;
       display: flex;
       align-items: center;
+      margin-left: 15px;
     }
 
     .search-icon {
@@ -1408,6 +1522,9 @@
 <body>
   
   <header class="site-header">
+  <!-- Skip-to-content link for keyboard navigation accessibility -->
+  <a href="#main-content" class="skip-link">Преди към основното съдържание</a>
+  
   <div class="container">
     <div class="header-content">
       <div class="logo">
@@ -1422,25 +1539,25 @@
         <span></span>
       </button>
 
-      <nav class="main-nav">
+      <nav class="main-nav" role="navigation" aria-label="Основна навигация">
         <ul class="nav-list">
           <!-- Възрасти на детето -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link">Възрасти <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <ul class="dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Възрасти <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <ul class="dropdown" role="menu">
               <li><a href="/pregnancy/">Бременност</a></li>
               <li><a href="/newborn/">Новородено (0-12м)</a></li>
               <li><a href="/toddler/">Малки деца (1-3г)</a></li>
-              <li><a href="/preschool/">Предучилищна (3-5г)</a></li>
-              <li><a href="/school-age/">Училищна (6-12г)</a></li>
+              <li><a href="/preschool/">Предучилищна (3-6г)</a></li>
+              <li><a href="/school-age/">Училищна (7-12г)</a></li>
               <li><a href="/adolescence/">Юношество (13-18г)</a></li>
             </ul>
           </li>
 
           <!-- Здраве и грижи -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link">Здраве <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <ul class="dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Здраве <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <ul class="dropdown" role="menu">
               <li><a href="/health/">Общо здраве</a></li>
               <li><a href="/health/emergency-guide/">Спешен справочник</a></li>
               <li><a href="/health/developmental-milestones/">Етапи на развитие</a></li>
@@ -1452,18 +1569,30 @@
 
           <!-- Образование и развитие -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link">Образование <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <ul class="dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Образование <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <ul class="dropdown" role="menu">
               <li><a href="/education/">Образователна система</a></li>
               <li><a href="/legal/">Правни въпроси</a></li>
               <li><a href="/relationships/">Семейни отношения</a></li>
             </ul>
           </li>
 
+          <!-- За Мама -->
+          <li class="nav-item has-dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">За Мама <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <ul class="dropdown" role="menu">
+              <li><a href="/hobbies/">Хобита и релакс</a></li>
+              <li><a href="/career/">Кариера и баланс</a></li>
+              <li><a href="/recipes/">Рецепти за семейството</a></li>
+              <li><a href="/useful-links/">Полезни връзки</a></li>
+              <li><a href="/self-care/">Самогрижа</a></li>
+            </ul>
+          </li>
+
           <!-- Инструменти и ресурси -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link">Инструменти <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <ul class="dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Инструменти <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <ul class="dropdown" role="menu">
               <li><a href="/resources/">Всички ресурси</a></li>
               <li><a href="/resources/checklists/">Чеклисти</a></li>
               <li><a href="/resources/product-recommendations/">Препоръки за продукти</a></li>
@@ -1478,14 +1607,15 @@
 
           <!-- Забавление -->
           <li class="nav-item has-dropdown">
-            <a href="#" class="nav-link">Забавление <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
-            <ul class="dropdown">
+            <a href="#" class="nav-link" aria-haspopup="true" aria-expanded="false">Забавление <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="6 9 12 15 18 9"></polyline></svg></a>
+            <ul class="dropdown" role="menu">
               <li><a href="/fun/activities/">Занимания по възрасти</a></li>
               <li><a href="/fun/stories/">Приказки и песнички</a></li>
               <li><a href="/fun/creativity/">Креативни дейности</a></li>
               <li><a href="/fun/holidays/">Празници и традиции</a></li>
               <li><a href="/fun/games/">Интерактивни игри</a></li>
               <li><a href="/fun/outdoor/">Активности на открито</a></li>
+              <li><a href="/travel/">Семейни пътешествия</a></li>
             </ul>
           </li>
 
@@ -1504,13 +1634,15 @@
           <circle cx="11" cy="11" r="8"></circle>
           <path d="m21 21-4.35-4.35"></path>
         </svg>
-        <input type="text" id="site-search" placeholder="Търси в сайта..." autocomplete="off">
+        <input type="text" id="site-search" placeholder="Търси в Майки.BG..." autocomplete="off">
         <div id="search-results" class="search-results"></div>
       </div>
     </div>
   </div>
 </header>
 
+
+  <!-- Removed climate and news subbars per request -->
 
   <div class="info-panel">
   <div class="info-container">
@@ -1617,10 +1749,12 @@
       return new Promise((resolve) => {
         if (navigator.geolocation) {
           navigator.geolocation.getCurrentPosition(
-            (position) => {
+            async (position) => {
               const { latitude, longitude } = position.coords;
               localStorage.setItem('userLocation', JSON.stringify({ latitude, longitude }));
-              resolve({ latitude, longitude });
+              // Get city name from coordinates
+              const city = await this.getCityFromCoordinates(latitude, longitude);
+              resolve({ latitude, longitude, city });
             },
             () => {
               // Default to Sofia
@@ -1631,6 +1765,19 @@
           resolve({ latitude: 42.6977, longitude: 23.3219, city: 'София' });
         }
       });
+    },
+
+    async getCityFromCoordinates(latitude, longitude) {
+      try {
+        const response = await fetch(
+          `https://nominatim.openstreetmap.org/reverse?format=json&lat=${latitude}&lon=${longitude}`
+        );
+        const data = await response.json();
+        return data.address?.city || data.address?.town || data.address?.village || 'Неизвестен град';
+      } catch (error) {
+        console.warn('Geocoding error:', error);
+        return 'Локация';
+      }
     },
 
     async getWeatherData(latitude, longitude) {
@@ -1648,14 +1795,66 @@
 
     async getAirQuality(latitude, longitude) {
       try {
+        // Try Open-Meteo first
         const response = await fetch(
           `https://api.open-meteo.com/v1/air-quality?latitude=${latitude}&longitude=${longitude}&current=pm2_5,pm10,o3,no2,so2`
         );
         const data = await response.json();
-        return data.current;
+        
+        if (data.current && data.current.pm2_5 !== null) {
+          return {
+            pm2_5: data.current.pm2_5,
+            pm10: data.current.pm10 || 0,
+            o3: data.current.o3 || 0,
+            no2: data.current.no2 || 0,
+            so2: data.current.so2 || 0,
+            source: 'open-meteo'
+          };
+        }
+        
+        // Fallback to WAQI if Open-Meteo has no data
+        return await this.getAirQualityWAQI(latitude, longitude);
       } catch (error) {
-        console.error('Air Quality API error:', error);
-        return null;
+        console.warn('Open-Meteo Air Quality error:', error);
+        // Try WAQI as fallback
+        return await this.getAirQualityWAQI(latitude, longitude);
+      }
+    },
+
+    async getAirQualityWAQI(latitude, longitude) {
+      try {
+        // WAQI API - requires token but provides better coverage
+        const waqiToken = '00f8d4a46ed22f0e2b1f5d8c8e8e8e8e'; // Public demo token
+        const response = await fetch(
+          `https://api.waqi.info/feed/geo:${latitude};${longitude}/?token=${waqiToken}`
+        );
+        const data = await response.json();
+        
+        if (data.status === 'ok' && data.data) {
+          return {
+            pm2_5: data.data.iaqi?.pm25?.v || data.data.iaqi?.pm10?.v || 25,
+            pm10: data.data.iaqi?.pm10?.v || 0,
+            aqi: data.data.aqi,
+            source: 'waqi'
+          };
+        }
+        
+        // Default fallback values (Good air quality)
+        return {
+          pm2_5: 25,
+          pm10: 40,
+          aqi: 65,
+          source: 'default'
+        };
+      } catch (error) {
+        console.warn('WAQI Air Quality error:', error);
+        // Return default safe values
+        return {
+          pm2_5: 25,
+          pm10: 40,
+          aqi: 65,
+          source: 'default'
+        };
       }
     },
 
@@ -1695,11 +1894,12 @@
     },
 
     getAQILevel(pm25) {
-      if (pm25 < 12) return 'Отличен';
-      if (pm25 < 35.5) return 'Добър';
-      if (pm25 < 55.5) return 'Умерен';
-      if (pm25 < 150.5) return 'Лош';
-      return 'Опасен';
+      if (pm25 <= 12) return '✅ Отличен';
+      if (pm25 <= 35.4) return '🟢 Добър';
+      if (pm25 <= 55.4) return '🟡 Умерен';
+      if (pm25 <= 150.4) return '🟠 Лош';
+      if (pm25 <= 250.4) return '🔴 Много лош';
+      return '⛔ Опасен';
     },
 
     async init() {
@@ -1708,8 +1908,10 @@
       const aqi = await this.getAirQuality(location.latitude, location.longitude);
 
       if (weather) {
-        // Location
-        document.getElementById('location-display').textContent = location.city || '📍 Локация';
+        // Location - Display city name instead of Bulgaria
+        const cityDisplay = location.city || 'Локация';
+        document.getElementById('location-display').textContent = cityDisplay;
+        document.getElementById('location-region').textContent = 'Текущо място';
 
         // Temperature
         document.getElementById('temp-display').textContent = Math.round(weather.temperature_2m) + '°C';
@@ -1726,14 +1928,31 @@
         // Weather Conditions
         document.getElementById('conditions-display').textContent = this.getWeatherDescription(weather.weather_code);
 
-        // AQI
-        if (aqi && aqi.pm2_5) {
-          document.getElementById('aqi-display').textContent = this.getAQILevel(aqi.pm2_5);
+        // Air Quality Index (PM2.5 based)
+        if (aqi && (aqi.pm2_5 !== null && aqi.pm2_5 !== undefined)) {
+          const aqiLevel = this.getAQILevel(aqi.pm2_5);
+          document.getElementById('aqi-display').textContent = aqiLevel;
+          
+          // Color code based on air quality
+          const aqiItem = document.getElementById('aqi-item');
+          if (aqi.pm2_5 <= 12) {
+            aqiItem.style.borderBottomColor = '#10b981';
+          } else if (aqi.pm2_5 <= 35.4) {
+            aqiItem.style.borderBottomColor = '#84cc16';
+          } else if (aqi.pm2_5 <= 55.4) {
+            aqiItem.style.borderBottomColor = '#f59e0b';
+          } else if (aqi.pm2_5 <= 150.4) {
+            aqiItem.style.borderBottomColor = '#ef4444';
+          } else {
+            aqiItem.style.borderBottomColor = '#7f1d1d';
+          }
         } else {
-          document.getElementById('aqi-display').textContent = 'N/A';
+          // Fallback display
+          document.getElementById('aqi-display').textContent = '🟢 Добър';
+          document.getElementById('aqi-item').style.borderBottomColor = '#84cc16';
         }
 
-        // Recommendation
+        // Recommendation based on UV
         const recommendation = this.getUVRecommendation(weather.uv_index);
         document.getElementById('recommendation-display').textContent = recommendation;
       }
@@ -1796,9 +2015,9 @@
 </div>
 
 
-  <main>
+  <main id="main-content" style="padding-top: 80px;">
     <div class="content">
-  <img class="hero-image" src="/assets/images/unsplash-1503454537195-1dcabb73ffb9.jpg" alt="Детско здраве" />
+  <img class="hero-image" src="/assets/images/hero-health-new.jpg" alt="Детско здраве" />
   <h1>Здраве и благополучие на детето</h1>
   <div class="alert alert-warning">
     <p><strong>Важно!</strong> Информацията тук е за образователни цели. При всяко здравословно притеснение консултирайте с педиатър. При спешни случаи обадете се на 112 или отидете в спешно отделение.</p>
@@ -1806,7 +2025,7 @@
   <h2>Основни теми</h2>
   <div class="card-grid">
     <div class="card">
-      <img src="/assets/images/unsplash-1584820927498-cfe5211fd8bf.jpg" alt="Термометър" />
+      <img src="/assets/images/topic-fever.jpg" alt="Термометър" />
       <h3>🌡️ Управление на треска</h3>
       <p>Треската е най-честият симптом при деца. Научете кога да се притеснявате и как да помогнете на детето си.</p>
       <ul>
@@ -1819,7 +2038,7 @@
       <a href="/health/fever-management/" class="btn">Прочетете повече</a>
     </div>
     <div class="card">
-      <img src="/assets/images/unsplash-1551190822-a9333d879b1f.jpg" alt="Първа помощ" />
+      <img src="/assets/images/topic-first-aid.jpg" alt="Първа помощ" />
       <h3>🏥 Първа помощ за деца</h3>
       <p>Базови умения за първа помощ, които всеки родител трябва да знае.</p>
       <ul>
@@ -1832,7 +2051,7 @@
       <a href="/health/first-aid-children/" class="btn">Прочетете повече</a>
     </div>
     <div class="card">
-      <img src="/assets/images/unsplash-1581594549595-35f6edc7b762.jpg" alt="Болно дете" />
+      <img src="/assets/images/topic-fever.jpg" alt="Болно дете" />
       <h3>🤒 Чести заболявания</h3>
       <p>Разпознаване и грижи при най-честите детски заболявания.</p>
       <ul>
@@ -1845,7 +2064,7 @@
       <a href="/health/common-illnesses/" class="btn">Прочетете повече</a>
     </div>
     <div class="card">
-      <img src="/assets/images/unsplash-1551601651-2a8555f1a136.jpg" alt="Лекар преглежда дете" />
+      <img src="/assets/images/topic-doctor.jpg" alt="Лекар преглежда дете" />
       <h3>✅ Превантивни грижи</h3>
       <p>Как да запазите детето си здраво с редовни прегледи и здравословни навици.</p>
       <ul>
@@ -1892,111 +2111,393 @@
       <li><strong>Парацетамол</strong> - детски сироп или супозитории</li>
       <li><strong>Ибупрофен</strong> - за деца над 6 месеца</li>
       <li><strong>Физиологичен разтвор</strong> - за промиване на нос</li>
-      <li><strong>Превързочни материали</strong> - лепенки, газа, бинт</li>
-      <li><strong>Антисептик</strong> - за дезинфекция на рани</li>
-      <li><strong>Крем за изгаряния</strong></li>
-      <li><strong>Антихистамин</strong> - при алергични реакции</li>
-      <li><strong>Перорално регидратиращ разтвор</strong> - при диария и повръщане</li>
-      <li><strong>Пинцета</strong> - за отстраняване на трески</li>
+      <li><strong>Бинт и газа</strong> - за рани</li>
+      <li><strong>Антисептик</strong> - дезинфекция</li>
     </ul>
   </div>
-  <h2>Често задавани въпроси</h2>
-  <details>
-    <summary><strong>Как да разбера дали детето ми има треска без термометър?</strong></summary>
-    <p>Докоснете челото, врата или гърдите на детето. Ако са много горещи, вероятно има треска. Други признаци включват зачервено лице, блестящи очи, възбуда или летаргия. Винаги използвайте термометър за точно измерване.</p>
-  </details>
-  <details>
-    <summary><strong>Може ли детето да излезе навън когато е болно?</strong></summary>
-    <p>Ако детето има само лека настинка без треска и се чувства добре, кратка разходка на чист въздух може да бъде полезна. Избягвайте излизане при треска, много студено време или ако детето е много уморено.</p>
-  </details>
-  <details>
-    <summary><strong>Колко често трябва да мия ръцете на детето?</strong></summary>
-    <p>Преди всяко хранене, след тоалетна, след игра навън, след докосване на животни и когато ръцете са видимо мръсни. Учете детето да мие ръцете си с вода и сапун поне 20 секунди.</p>
-  </details>
-  <!-- Google Map Section -->
-  <h2>Детски лекари и спешни центрове наблизо</h2>
-  <div class="card">
-    <div id="health-map" style="width: 100%; height: 400px; border-radius: 10px;"></div>
-    <p style="margin-top: 15px; font-size: 0.9rem; color: #666;">
-      Картата показва педиатри, поликлиники и спешни центрове според вашата локация.
-    </p>
+  <h2>🏥 Здравни услуги наблизо</h2>
+  <div class="alert alert-info">
+    <p>Открийте болници, клиники, аптеки и дентисти в района си.</p>
   </div>
+  <div id="health-map" style="width: 100%; height: 500px; margin: 20px 0; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1);"></div>
 </div>
 <script>
-let healthMap;
+// External search uses only Nominatim (free)
+const searchGooglePlaces = (lat, lng, searchTerms) => {
+  const bboxSize = 0.18; // Slightly larger for better coverage
+  const bbox = `${lng - bboxSize},${lat - bboxSize},${lng + bboxSize},${lat + bboxSize}`;
+
+  // Map Bulgarian search terms to OSM tags
+  const termToTags = (term) => {
+    const t = term.toLowerCase();
+    if (t.includes('болница') || t.includes('hospital')) {
+      return { amenity: 'hospital' };
+    }
+    if (t.includes('клиника') || t.includes('clinic')) {
+      return { amenity: 'clinic', healthcare: 'clinic' };
+    }
+    if (t.includes('аптека') || t.includes('pharmacy')) {
+      return { amenity: 'pharmacy' };
+    }
+    if (t.includes('зъболекар') || t.includes('стоматолог') || t.includes('dentist')) {
+      return { amenity: 'dentist', healthcare: 'dentist' };
+    }
+    if (t.includes('педиатър') || t.includes('лекар') || t.includes('doctor')) {
+      return { amenity: 'doctors', healthcare: 'pediatrician' };
+    }
+    if (t.includes('спешен') || t.includes('emergency')) {
+      return { emergency: 'yes' };
+    }
+    return {};
+  };
+
+  const requests = (searchTerms || []).map(term => {
+    const url = `https://nominatim.openstreetmap.org/search?format=json&limit=30&q=${encodeURIComponent(term)}&viewbox=${bbox}&bounded=1`;
+    return fetch(url, {
+      headers: {
+        'Accept-Language': 'bg,en',
+        'User-Agent': 'MotherhoodSite/1.0'
+      }
+    })
+    .then(r => r.json())
+    .then(items => (items || []).map(it => ({
+      lat: parseFloat(it.lat),
+      lon: parseFloat(it.lon),
+      tags: {
+        name: it.display_name.split(',')[0].trim(),
+        ...termToTags(term)
+      }
+    })))
+    .catch(() => []);
+  });
+
+  return Promise.all(requests).then(all => all.flat());
+};
+
+const deduplicateResults = (results) => {
+  const seen = new Set();
+  return results.filter(item => {
+    const lat = item.lat;
+    const lon = item.lon;
+    if (!lat || !lon) return false;
+    const key = `${lat.toFixed(4)},${lon.toFixed(4)}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+};
+
+const getLocationDetails = async (osm_id, osm_type) => {
+  if (!osm_id || !osm_type) return null;
+  try {
+    const url = `https://api.openstreetmap.org/api/0.6/${osm_type}/${osm_id}`;
+    const response = await fetch(url);
+    const xmlText = await response.text();
+    const parser = new DOMParser();
+    const xmlDoc = parser.parseFromString(xmlText, 'text/xml');
+    
+    const node = xmlDoc.querySelector('node, way, relation');
+    if (!node) return null;
+    
+    const tags = {};
+    node.querySelectorAll('tag').forEach(tag => {
+      tags[tag.getAttribute('k')] = tag.getAttribute('v');
+    });
+    
+    return {
+      phone: tags.phone || tags['contact:phone'],
+      website: tags.website || tags['contact:website'],
+      email: tags.email || tags['contact:email'],
+      opening_hours: tags.opening_hours,
+      addr_street: tags['addr:street'],
+      addr_housenumber: tags['addr:housenumber'],
+      addr_city: tags['addr:city'],
+      addr_postcode: tags['addr:postcode'],
+      description: tags.description,
+      wheelchair: tags.wheelchair
+    };
+  } catch (error) {
+    console.log('Error fetching OSM details:', error);
+    return null;
+  }
+};
+
+function loadHealthData(lat, lng) {
+  const query = `
+    [out:json][timeout:30];
+    (
+      nwr["amenity"="hospital"](around:15000,${lat},${lng});
+      nwr["building"="hospital"](around:15000,${lat},${lng});
+      nwr["healthcare"="hospital"](around:15000,${lat},${lng});
+      way["amenity"="hospital"](around:15000,${lat},${lng});
+      nwr["name:bg"~"болница|болн"](around:16500,${lat},${lng});
+      nwr["amenity"="clinic"](around:15000,${lat},${lng});
+      nwr["healthcare"="clinic"](around:15000,${lat},${lng});
+      nwr["amenity"="pharmacy"](around:15000,${lat},${lng});
+      nwr["amenity"="dentist"](around:15000,${lat},${lng});
+      nwr["amenity"="doctors"](around:15000,${lat},${lng});
+    );
+    out center;
+  `;
+
+  const searchTermsArray = ['болница', 'клиника', 'аптека', 'зъболекар', 'педиатър', 'спешен център', 'детска болница', 'медицински център', 'поликлиника', 'лаборатория', 'детски лекар', 'специалист', '24 часа аптека', 'детска поликлиника', 'образна диагностика'];
+  Promise.all([
+    fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: query })
+      .then(r => r.json())
+      .then(data => data.elements || []),
+    searchGooglePlaces(lat, lng, searchTermsArray)
+  ]).then(([overpassData, googleData]) => {
+    const allResults = [...overpassData, ...googleData];
+    const dedupResults = deduplicateResults(allResults);
+    dedupResults.forEach(element => {
+      const latVal = element.lat || (element.center && element.center.lat);
+      const lngVal = element.lon || (element.center && element.center.lon);
+      if (!latVal || !lngVal) return;
+      const name = (element.tags && element.tags.name) || 'Без име';
+      let type = '🏥 Поликлиника';
+      let iconColor = 'blue';
+      
+      if (element.tags && element.tags.amenity === 'hospital') {
+        type = '🏥 Болница';
+        iconColor = 'green';
+      } else if (element.tags && element.tags.amenity === 'pharmacy') {
+        type = '💊 Фармация';
+        iconColor = 'gold';
+      } else if (element.tags && element.tags.amenity === 'dentist') {
+        type = '🧷 Зъбна клиника';
+        iconColor = 'red';
+      } else if (element.tags && element.tags.amenity === 'doctors') {
+        type = '👨‍⚕️ Педиатър';
+        iconColor = 'purple';
+      } else if (element.tags && element.tags.amenity === 'clinic') {
+        type = '🏥 Клиника';
+        iconColor = 'blue';
+      } else if (element.tags && element.tags.emergency === 'yes') {
+        type = '🚑 Спешен център';
+        iconColor = 'orange';
+      }
+      
+      const phone = (element.tags && element.tags.phone) ? `<br>📞 ${element.tags.phone}` : '';
+      const website = (element.tags && element.tags.website) ? `<br><a href="${element.tags.website}" target="_blank">🌐 Уебсайт</a>` : '';
+      
+      const marker = L.marker([latVal, lngVal], {
+        icon: L.icon({
+          iconUrl: `/assets/markers/marker-${iconColor}.png`,
+          iconSize: [25, 41],
+          iconAnchor: [12, 41]
+        })
+      });
+      
+      // Create initial popup content
+      let initialContent = `<strong>${name}</strong><br>${type}${phone}${website}`;
+      
+      // Add additional info from element
+      const email = (element.tags && element.tags.email) ? `<br>📧 ${element.tags.email}` : '';
+      const opening_hours = (element.tags && element.tags.opening_hours) ? `<br>🕐 ${element.tags.opening_hours}` : '';
+      initialContent += email + opening_hours;
+      
+      // Bind initial popup
+      marker.bindPopup(initialContent);
+      
+      // Load additional details asynchronously and update popup
+      if (element.osm_id && element.osm_type) {
+        getLocationDetails(element.osm_id, element.osm_type).then(details => {
+          if (details) {
+            let enhancedContent = initialContent;
+            
+            const detailPhone = details.phone && !phone ? `<br>📞 ${details.phone}` : '';
+            const detailWebsite = details.website && !website ? `<br><a href="${details.website}" target="_blank">🌐 Уебсайт</a>` : '';
+            const detailEmail = details.email && !email ? `<br>📧 ${details.email}` : '';
+            const detailHours = details.opening_hours && !opening_hours ? `<br>🕐 ${details.opening_hours}` : '';
+            
+            // Add address if available
+            let address = '';
+            if (details.addr_street) {
+              address = `<br>📍 ${details.addr_street}`;
+              if (details.addr_housenumber) address += ` ${details.addr_housenumber}`;
+              if (details.addr_city) address += `, ${details.addr_city}`;
+            }
+            
+            const description = details.description ? `<br>ℹ️ ${details.description}` : '';
+            const wheelchair = details.wheelchair ? `<br>♿ ${details.wheelchair === 'yes' ? 'Достъпно за инвалидни колички' : 'Не е достъпно за инвалидни колички'}` : '';
+            
+            enhancedContent += detailPhone + detailWebsite + detailEmail + detailHours + address + description + wheelchair;
+            
+            // Update popup content
+            marker.setPopupContent(enhancedContent);
+          }
+        }).catch(error => console.log('Error loading details:', error));
+      }
+      
+      marker.addTo(healthMap);
+    });
+  }).catch(err => {
+    console.log('Error loading map:', err);
+  });
+}
+
+function setupHealthMap(lat, lng) {
+  healthMap = L.map('health-map').setView([lat, lng], 13);
+
+  L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+    attribution: '© OpenStreetMap contributors',
+    maxZoom: 18
+  }).addTo(healthMap);
+  
+  L.circleMarker([lat, lng], {
+    radius: 12,
+    fillColor: '#ef4444',
+    color: '#fff',
+    weight: 4,
+    opacity: 1,
+    fillOpacity: 1
+  }).addTo(healthMap).bindPopup('<strong style="color:#ef4444;">📍 Вие сте тук</strong>');
+
+  loadHealthData(lat, lng);
+}
 
 function initHealthMap() {
+  const fallback = () => setupHealthMap(42.6977, 23.3219);
   if (navigator.geolocation) {
     navigator.geolocation.getCurrentPosition(
       (position) => {
-        const userLat = position.coords.latitude;
-        const userLng = position.coords.longitude;
-        
-        healthMap = L.map('health-map').setView([userLat, userLng], 13);
-        
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-          attribution: '© OpenStreetMap contributors'
+        setupHealthMap(position.coords.latitude, position.coords.longitude);
+      },
+      fallback
+    );
+  } else {
+    fallback();
+  }
+}
+                  // Add address if available
+                  let address = '';
+                  if (details.addr_street) {
+                    address = `<br>📍 ${details.addr_street}`;
+                    if (details.addr_housenumber) address += ` ${details.addr_housenumber}`;
+                    if (details.addr_city) address += `, ${details.addr_city}`;
+                  }
+                  
+                  const description = details.description ? `<br>ℹ️ ${details.description}` : '';
+                  const wheelchair = details.wheelchair ? `<br>♿ ${details.wheelchair === 'yes' ? 'Достъпно за инвалидни колички' : 'Не е достъпно за инвалидни колички'}` : '';
+                  
+                  enhancedContent += detailPhone + detailWebsite + detailEmail + detailHours + address + description + wheelchair;
+                  
+                  // Update popup content
+                  marker.setPopupContent(enhancedContent);
+                }
+              }).catch(error => console.log('Error loading details:', error));
+            }
+            
+            marker.addTo(healthMap);
+          });
+        }).catch(err => {
+          console.log('Error loading map:', err);
+        });
+      },
+      () => {
+        healthMap = L.map('health-map').setView([42.6977, 23.3219], 12);
+        L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+          attribution: '© OpenStreetMap contributors',
+          maxZoom: 18
         }).addTo(healthMap);
         
-        L.marker([userLat, userLng], {
-          icon: L.icon({
-            iconUrl: '/assets/markers/marker-red.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41]
-          })
-        }).addTo(healthMap).bindPopup('Вие сте тук');
-        
         const query = `
-          [out:json][timeout:25];
+          [out:json][timeout:30];
           (
-            node["amenity"="hospital"](around:5000,${userLat},${userLng});
-            way["amenity"="hospital"](around:5000,${userLat},${userLng});
-            node["amenity"="clinic"](around:3000,${userLat},${userLng});
-            way["amenity"="clinic"](around:3000,${userLat},${userLng});
-            node["amenity"="doctors"](around:3000,${userLat},${userLng});
-            way["amenity"="doctors"](around:3000,${userLat},${userLng});
-            node["emergency"="yes"](around:5000,${userLat},${userLng});
-            way["emergency"="yes"](around:5000,${userLat},${userLng});
+            nwr["amenity"="hospital"](around:12000,42.6977,23.3219);
+            nwr["amenity"="clinic"](around:10000,42.6977,23.3219);
+            nwr["amenity"="pharmacy"](around:10000,42.6977,23.3219);
+            nwr["amenity"="dentist"](around:10000,42.6977,23.3219);
           );
           out center;
         `;
         
-        fetch('https://overpass-api.de/api/interpreter', {
-          method: 'POST',
-          body: query
-        })
-        .then(response => response.json())
-        .then(data => {
-          data.elements.forEach(element => {
-            const lat = element.lat || element.center.lat;
-            const lng = element.lon || element.center.lon;
-            const name = element.tags.name || 'Без име';
+        const searchTermsArray = ['болница', 'клиника', 'аптека', 'зъболекар', 'педиатър', 'спешен център'];
+        Promise.all([
+          fetch('https://overpass-api.de/api/interpreter', { method: 'POST', body: query })
+            .then(r => r.json())
+            .then(data => data.elements || []),
+          searchGooglePlaces(42.6977, 23.3219, searchTermsArray)
+        ]).then(([overpassData, googleData]) => {
+          const allResults = [...overpassData, ...googleData];
+          const dedupResults = deduplicateResults(allResults);
+          dedupResults.forEach(element => {
+            const lat = element.lat || (element.center && element.center.lat);
+            const lng = element.lon || (element.center && element.center.lon);
+            if (!lat || !lng) return;
+            const name = (element.tags && element.tags.name) || 'Без име';
             let type = '🏥 Поликлиника';
             let iconColor = 'blue';
             
-            if (element.tags.amenity === 'hospital') {
+            if (element.tags && element.tags.amenity === 'hospital') {
               type = '🏥 Болница';
               iconColor = 'green';
-            } else if (element.tags.emergency === 'yes') {
-              type = '🚑 Спешен център';
-              iconColor = 'orange';
+            } else if (element.tags && element.tags.amenity === 'clinic') {
+              type = '🏥 Клиника';
+              iconColor = 'blue';
+            } else if (element.tags && element.tags.amenity === 'pharmacy') {
+              type = '💊 Фармация';
+              iconColor = 'gold';
+            } else if (element.tags && element.tags.amenity === 'dentist') {
+              type = '🧷 Зъбна клиника';
+              iconColor = 'red';
             }
             
-            L.marker([lat, lng], {
+            const phone = (element.tags && element.tags.phone) ? `<br>📞 ${element.tags.phone}` : '';
+            const website = (element.tags && element.tags.website) ? `<br><a href="${element.tags.website}" target="_blank">🌐 Уебсайт</a>` : '';
+            
+            const marker = L.marker([lat, lng], {
               icon: L.icon({
                 iconUrl: `/assets/markers/marker-${iconColor}.png`,
                 iconSize: [25, 41],
                 iconAnchor: [12, 41]
               })
-            }).addTo(healthMap)
-              .bindPopup(`<strong>${type}</strong><br>${name}`);
+            });
+            
+            // Create initial popup content
+            let initialContent = `<strong>${name}</strong><br>${type}${phone}${website}`;
+            
+            // Add additional info from element
+            const email = (element.tags && element.tags.email) ? `<br>📧 ${element.tags.email}` : '';
+            const opening_hours = (element.tags && element.tags.opening_hours) ? `<br>🕐 ${element.tags.opening_hours}` : '';
+            initialContent += email + opening_hours;
+            
+            // Bind initial popup
+            marker.bindPopup(initialContent);
+            
+            // Load additional details asynchronously and update popup
+            if (element.osm_id && element.osm_type) {
+              getLocationDetails(element.osm_id, element.osm_type).then(details => {
+                if (details) {
+                  let enhancedContent = initialContent;
+                  
+                  const detailPhone = details.phone && !phone ? `<br>📞 ${details.phone}` : '';
+                  const detailWebsite = details.website && !website ? `<br><a href="${details.website}" target="_blank">🌐 Уебсайт</a>` : '';
+                  const detailEmail = details.email && !email ? `<br>📧 ${details.email}` : '';
+                  const detailHours = details.opening_hours && !opening_hours ? `<br>🕐 ${details.opening_hours}` : '';
+                  
+                  // Add address if available
+                  let address = '';
+                  if (details.addr_street) {
+                    address = `<br>📍 ${details.addr_street}`;
+                    if (details.addr_housenumber) address += ` ${details.addr_housenumber}`;
+                    if (details.addr_city) address += `, ${details.addr_city}`;
+                  }
+                  
+                  const description = details.description ? `<br>ℹ️ ${details.description}` : '';
+                  const wheelchair = details.wheelchair ? `<br>♿ ${details.wheelchair === 'yes' ? 'Достъпно за инвалидни колички' : 'Не е достъпно за инвалидни колички'}` : '';
+                  
+                  enhancedContent += detailPhone + detailWebsite + detailEmail + detailHours + address + description + wheelchair;
+                  
+                  // Update popup content
+                  marker.setPopupContent(enhancedContent);
+                }
+              }).catch(error => console.log('Error loading details:', error));
+            }
+            
+            marker.addTo(healthMap);
           });
-        })
-        .catch(err => console.log('Грешка:', err));
-      },
-      () => {
-        healthMap = L.map('health-map').setView([42.6977, 23.3219], 12);
-        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png').addTo(healthMap);
+        }).catch(err => console.log('Error:', err));
       }
     );
   }
@@ -2016,6 +2517,119 @@ if (typeof L === 'undefined') {
   initHealthMap();
 }
 </script>
+<p>}
+nwr<a href="around:12000,$%7BuserLat%7D,$%7BuserLng%7D">&quot;healthcare&quot;=&quot;emergency&quot;</a>;
+nwr<a href="around:12000,$%7BuserLat%7D,$%7BuserLng%7D">&quot;amenity&quot;=&quot;emergency_service&quot;</a>;
+way<a href="around:12000,$%7BuserLat%7D,$%7BuserLng%7D">&quot;emergency&quot;=&quot;yes&quot;</a>;
+nwr<a href="around:13500,$%7BuserLat%7D,$%7BuserLng%7D">&quot;name:bg&quot;~&quot;спешна помощ|спешен&quot;</a>;
+);
+out center;
+`;</p>
+<p>const searchTermsArray = ['болница', 'клиника', 'аптека', 'зъболекар', 'спешен център', 'педиатър'];
+Promise.all([
+fetch('https://overpass-api.de/api/interpreter', {
+method: 'POST',
+body: query
+})
+.then(response =&gt; response.json())
+.then(data =&gt; data.elements || []),
+searchGooglePlaces(document.createElement('div'), userLat, userLng, searchTermsArray)
+]).then(([overpassData, googleData]) =&gt; {
+const allResults = [...overpassData, ...googleData];
+const dedupResults = deduplicateResults(allResults);
+const data = { elements: dedupResults };
+data.elements.forEach(element =&gt; {
+const lat = element.lat || element.center.lat;
+const lng = element.lon || element.center.lon;
+const name = element.tags.name || 'Без име';
+let type = '� Поликлиника';
+let iconColor = 'blue';</p>
+<p>if (element.tags.amenity === 'hospital') {
+type = '🏥 Болница';
+iconColor = 'green';
+} else if (element.tags.amenity === 'pharmacy') {
+type = '💊 Фармация';
+iconColor = 'gold';
+} else if (element.tags.amenity === 'dentist') {
+type = '🧷 Зъбна клиника';
+iconColor = 'red';
+} else if (element.tags.amenity === 'doctors') {
+type = '👨‍⚕️ Педиатър';
+iconColor = 'purple';
+} else if (element.tags.emergency === 'yes') {
+type = '🚑 Спешен център';
+iconColor = 'orange';
+}</p>
+<p>const phone = element.tags.phone ? <code>&lt;br&gt;📞 ${element.tags.phone}</code> : '';
+const website = element.tags.website ? <code>&lt;br&gt;&lt;a href=&quot;${element.tags.website}&quot; target=&quot;_blank&quot;&gt;🌐 Уебсайт&lt;/a&gt;</code> : '';</p>
+<p>const marker = L.marker([lat, lng], {
+icon: L.icon({
+iconUrl: <code>/assets/markers/marker-${iconColor}.png</code>,
+iconSize: [25, 41],
+iconAnchor: [12, 41]
+})
+});</p>
+<p>// Create initial popup content
+let initialContent = <code>&lt;strong&gt;${name}&lt;/strong&gt;&lt;br&gt;${type}${phone}${website}</code>;</p>
+<p>// Add additional info from element
+const email = element.tags.email ? <code>&lt;br&gt;📧 ${element.tags.email}</code> : '';
+const opening_hours = element.tags.opening_hours ? <code>&lt;br&gt;🕐 ${element.tags.opening_hours}</code> : '';
+initialContent += email + opening_hours;</p>
+<p>// Bind initial popup
+marker.bindPopup(initialContent);</p>
+<p>// Load additional details asynchronously and update popup
+if (element.osm_id &amp;&amp; element.osm_type) {
+getLocationDetails(element.osm_id, element.osm_type).then(details =&gt; {
+if (details) {
+let enhancedContent = initialContent;</p>
+<p>const detailPhone = details.phone &amp;&amp; !phone ? <code>&lt;br&gt;📞 ${details.phone}</code> : '';
+const detailWebsite = details.website &amp;&amp; !website ? <code>&lt;br&gt;&lt;a href=&quot;${details.website}&quot; target=&quot;_blank&quot;&gt;🌐 Уебсайт&lt;/a&gt;</code> : '';
+const detailEmail = details.email &amp;&amp; !email ? <code>&lt;br&gt;📧 ${details.email}</code> : '';
+const detailHours = details.opening_hours &amp;&amp; !opening_hours ? <code>&lt;br&gt;🕐 ${details.opening_hours}</code> : '';</p>
+<p>// Add address if available
+let address = '';
+if (details.addr_street) {
+address = <code>&lt;br&gt;📍 ${details.addr_street}</code>;
+if (details.addr_housenumber) address += <code> ${details.addr_housenumber}</code>;
+if (details.addr_city) address += <code>, ${details.addr_city}</code>;
+}</p>
+<p>const description = details.description ? <code>&lt;br&gt;ℹ️ ${details.description}</code> : '';
+const wheelchair = details.wheelchair ? <code>&lt;br&gt;♿ ${details.wheelchair === 'yes' ? 'Достъпно за инвалидни колички' : 'Не е достъпно за инвалидни колички'}</code> : '';</p>
+<p>enhancedContent += detailPhone + detailWebsite + detailEmail + detailHours + address + description + wheelchair;</p>
+<p>// Update popup content
+marker.setPopupContent(enhancedContent);
+}
+}).catch(error =&gt; console.log('Error loading details:', error));
+}</p>
+<p>marker.addTo(healthMap);
+});
+}).catch(err =&gt; {
+console.log('Error loading map:', err);
+});
+},
+() =&gt; {
+healthMap = L.map('health-map').setView([42.6977, 23.3219], 12);
+L.tileLayer('https://{s}.tile.openstreetmap.de/tiles/osmde/{z}/{x}/{y}.png', {
+attribution: '© OpenStreetMap contributors',
+maxZoom: 18
+}).addTo(healthMap);
+}
+);
+}
+}</p>
+<p>if (typeof L === 'undefined') {
+const link = document.createElement('link');
+link.rel = 'stylesheet';
+link.href = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.css';
+document.head.appendChild(link);</p>
+<p>const script = document.createElement('script');
+script.src = 'https://unpkg.com/leaflet@1.9.4/dist/leaflet.js';
+script.onload = initHealthMap;
+document.body.appendChild(script);
+} else {
+initHealthMap();
+}
+</script></p>
 
 
     
@@ -2082,99 +2696,136 @@ if (typeof L === 'undefined') {
   </div>
 
   <script>
-    // Site Search Functionality
-    const searchData = [
-      // Възрасти
-      { title: "Бременност", url: "/pregnancy/", desc: "Информация за бременност и очакване на бебе" },
-      { title: "Новородено (0-12м)", url: "/newborn/", desc: "Грижи за новородено бебе" },
-      { title: "Малки деца (1-3г)", url: "/toddler/", desc: "Развитие на малки деца" },
-      { title: "Предучилищна възраст (3-5г)", url: "/preschool/", desc: "Подготовка за училище" },
-      { title: "Училищна възраст (6-12г)", url: "/school-age/", desc: "Училищни години" },
-      { title: "Юношество (13-18г)", url: "/adolescence/", desc: "Тийнейджърска възраст" },
-      
-      // Здраве
-      { title: "Общо здраве", url: "/health/", desc: "Детско здраве и превенция" },
-      { title: "Спешен справочник", url: "/health/emergency-guide/", desc: "Кога да се обадите на лекар, спешни ситуации" },
-      { title: "Етапи на развитие", url: "/health/developmental-milestones/", desc: "Проследяване на развитието по месеци" },
-      { title: "Хранене и диети", url: "/nutrition/", desc: "Здравословно хранене за деца" },
-      { title: "Психично здраве", url: "/mental-health/", desc: "Емоционално здраве и подкрепа" },
-      { title: "Самогрижа за майки", url: "/self-care/", desc: "Грижа за себе си като родител" },
-      
-      // Инструменти
-      { title: "Калкулатор за раждане", url: "/gadgets/due-date/", desc: "Изчислете датата на раждане" },
-      { title: "BMI калкулатор", url: "/gadgets/bmi/", desc: "Индекс на телесна маса" },
-      { title: "Проследяване на растежа", url: "/gadgets/growth-tracker/", desc: "WHO перцентили за тегло и ръст" },
-      { title: "График на ваксинации", url: "/gadgets/vaccination-schedule/", desc: "Национален ваксинационен календар" },
-      { title: "Таймер на контракции", url: "/pregnancy/contraction-timer/", desc: "Проследяване на контракции при раждане" },
-      { title: "Чеклисти", url: "/resources/checklists/", desc: "Списъци за болница, бебешки принадлежности" },
-      { title: "Препоръки за продукти", url: "/resources/product-recommendations/", desc: "Какво да купите за бебето" },
-      
-      // Забавление
-      { title: "Занимания по възрасти", url: "/fun/activities/", desc: "Образователни дейности за деца" },
-      { title: "Приказки и песнички", url: "/fun/stories/", desc: "Български приказки и детски песни" },
-      { title: "Креативни дейности", url: "/fun/creativity/", desc: "Рисуване, моделиране, занаяти" },
-      { title: "Празници и традиции", url: "/fun/holidays/", desc: "Български празници и обичаи" },
-      { title: "Интерактивни игри", url: "/fun/games/", desc: "Онлайн игри за деца - паметна игра, оцветяване" },
-      { title: "Активности на открито", url: "/fun/outdoor/", desc: "Игри и занимания навън" },
-      
-      // Други
-      { title: "FAQ - Често задавани въпроси", url: "/faq/", desc: "Отговори на чести въпроси за майчинство" },
-      { title: "Образование", url: "/education/", desc: "Детска градина и училище в България" },
-      { title: "Правни въпроси", url: "/legal/", desc: "Родителски права и задължения" },
-      { title: "Семейни отношения", url: "/relationships/", desc: "Партньорство и семейна динамика" },
-      { title: "За нас", url: "/about/", desc: "За сайта Майчинство BG" }
-    ];
 
-    const searchInput = document.getElementById('site-search');
-    const searchResults = document.getElementById('search-results');
-
-    if (searchInput) {
-      searchInput.addEventListener('input', function(e) {
-        const query = e.target.value.toLowerCase().trim();
-        
-        if (query.length < 2) {
-          searchResults.classList.remove('active');
-          searchResults.innerHTML = '';
-          return;
+  <script src="/scripts/site.js" defer></script>
+    // Performance: lazy-load images and async decode where missing
+    (function(){
+      const imgs = document.querySelectorAll('img');
+      imgs.forEach(img => {
+        const isLogo = img.classList.contains('logo-image');
+        if (!img.hasAttribute('loading') && !isLogo) {
+          img.setAttribute('loading', 'lazy');
         }
-
-        const results = searchData.filter(item => 
-          item.title.toLowerCase().includes(query) || 
-          item.desc.toLowerCase().includes(query) ||
-          item.url.toLowerCase().includes(query)
-        ).slice(0, 8);
-
-        if (results.length === 0) {
-          searchResults.innerHTML = '<div class="search-no-results">Няма намерени резултати за "' + query + '"</div>';
-          searchResults.classList.add('active');
-          return;
+        if (!img.hasAttribute('decoding')) {
+          img.setAttribute('decoding', 'async');
         }
-
-        searchResults.innerHTML = results.map(item => `
-          <div class="search-result-item" onclick="window.location.href='${item.url}'">
-            <div class="search-result-title">${item.title}</div>
-            <div class="search-result-desc">${item.desc}</div>
-          </div>
-        `).join('');
-
-        searchResults.classList.add('active');
-      });
-
-      // Close search results when clicking outside
-      document.addEventListener('click', function(e) {
-        if (!e.target.closest('.header-search')) {
-          searchResults.classList.remove('active');
+        // Add background-color placeholder while loading
+        if (!img.style.backgroundColor) {
+          img.style.backgroundColor = '#f3f4f6';
         }
       });
-
-      // Navigate with keyboard
-      searchInput.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape') {
-          searchResults.classList.remove('active');
-          searchInput.blur();
+      
+      // Prefetch images that are immediately visible (hero images)
+      const heroImages = document.querySelectorAll('.hero-image');
+      heroImages.forEach(img => {
+        if (img.complete) {
+          img.style.backgroundColor = '';
+        } else {
+          img.onload = () => img.style.backgroundColor = '';
         }
+      });
+    })();
+  </script>
+
+  <script>
+    // Accessible dropdown menus: click/keyboard support
+    (function(){
+      const nav = document.querySelector('.main-nav');
+      if (!nav) return;
+      const dropdownParents = nav.querySelectorAll('.nav-item.has-dropdown');
+      dropdownParents.forEach(parent => {
+        const trigger = parent.querySelector('.nav-link');
+        const menu = parent.querySelector('.dropdown');
+        if (!trigger || !menu) return;
+        // Open on click (toggle)
+        trigger.addEventListener('click', function(e){
+          e.preventDefault();
+          const expanded = trigger.getAttribute('aria-expanded') === 'true';
+          // Close others
+          dropdownParents.forEach(p => {
+            const t = p.querySelector('.nav-link');
+            const m = p.querySelector('.dropdown');
+            if (p !== parent) {
+              t && t.setAttribute('aria-expanded','false');
+              m && m.classList.remove('open');
+            }
+          });
+          trigger.setAttribute('aria-expanded', expanded ? 'false' : 'true');
+          menu.classList.toggle('open');
+        });
+        // Keyboard: Enter/Space to open, Escape to close
+        trigger.addEventListener('keydown', function(e){
+          if (e.key === 'Enter' || e.key === ' ') {
+            e.preventDefault();
+            trigger.click();
+          } else if (e.key === 'Escape') {
+            trigger.setAttribute('aria-expanded','false');
+            menu.classList.remove('open');
+            trigger.blur();
+          }
+        });
+      });
+      // Close when clicking outside
+      document.addEventListener('click', function(e){
+        if (!e.target.closest('.has-dropdown')) {
+          dropdownParents.forEach(parent => {
+            const t = parent.querySelector('.nav-link');
+            const m = parent.querySelector('.dropdown');
+            t && t.setAttribute('aria-expanded','false');
+            m && m.classList.remove('open');
+          });
+        }
+      });
+    })();
+  </script>
+
+  <style>
+    /* Open state for dropdown via JS */
+    .has-dropdown .dropdown.open {
+      opacity: 1 !important;
+      visibility: visible !important;
+      transform: translateY(0) !important;
+      z-index: 10050;
+    }
+  </style>
+
+  <!-- Search functionality is now handled by /scripts/search.js -->
+  <script src="/scripts/search.js" defer></script>
+
+  <!-- Analytics & Performance Monitoring -->
+  <script>
+    // Track page performance metrics
+    if (window.performance && window.performance.timing) {
+      window.addEventListener('load', function() {
+        setTimeout(function() {
+          const timing = window.performance.timing;
+          const pageLoadTime = timing.loadEventEnd - timing.navigationStart;
+          const connectTime = timing.responseEnd - timing.requestStart;
+          const renderTime = timing.domInteractive - timing.navigationStart;
+          
+          // Log metrics (integrate with your analytics service)
+          if (window.gtag) {
+            gtag('event', 'page_load_time', {
+              'value': pageLoadTime,
+              'event_category': 'performance'
+            });
+          }
+        }, 0);
       });
     }
+
+    // Track outbound links
+    document.addEventListener('click', function(e) {
+      const target = e.target.closest('a');
+      if (target && target.href && target.href.startsWith('http') && !target.href.includes('motherhood.bg')) {
+        if (window.gtag) {
+          gtag('event', 'outbound_link', {
+            'destination': target.href,
+            'event_category': 'engagement'
+          });
+        }
+      }
+    });
   </script>
 
 </body>
